@@ -21,11 +21,74 @@
                 --ec-transition: all 0.2s ease;
             }
 
+            [data-theme="dark"] .ec-card {
+                background: var(--bg-secondary) !important;
+                border-color: var(--border-color) !important;
+                box-shadow: none !important;
+            }
+
+            [data-theme="dark"] .ec-card-header {
+                border-color: var(--border-color) !important;
+            }
+
+            [data-theme="dark"] .ec-card-header h3 {
+                color: var(--text-primary) !important;
+            }
+
+            [data-theme="dark"] .ec-card-header span {
+                background: var(--bg-tertiary) !important;
+                color: var(--text-secondary) !important;
+            }
+
+            /* Form fields */
+            [data-theme="dark"] .ec-field label {
+                color: var(--text-secondary) !important;
+            }
+
+            [data-theme="dark"] .ec-field input,
+            [data-theme="dark"] .ec-field textarea {
+                background: var(--bg-tertiary) !important;
+                border-color: var(--border-color) !important;
+                color: var(--text-primary) !important;
+            }
+
+            [data-theme="dark"] .ec-field input:focus,
+            [data-theme="dark"] .ec-field textarea:focus {
+                background: var(--bg-secondary) !important;
+                border-color: var(--primary) !important;
+            }
+
+            [data-theme="dark"] .ec-field input::placeholder,
+            [data-theme="dark"] .ec-field textarea::placeholder {
+                color: var(--text-tertiary) !important;
+            }
+
+            [data-theme="dark"] .ec-help {
+                color: var(--text-tertiary) !important;
+            }
+
+            /* Cancel button */
+            [data-theme="dark"] .ec-cancel-btn {
+                background: var(--bg-tertiary) !important;
+                border-color: var(--border-color) !important;
+                color: var(--text-secondary) !important;
+            }
+
+            [data-theme="dark"] .ec-cancel-btn:hover {
+                background: var(--bg-primary) !important;
+                color: var(--text-primary) !important;
+            }
+
+            /* Alert */
+            [data-theme="dark"] .ec-alert.error {
+                background: rgba(220, 38, 38, 0.1) !important;
+                border-color: rgba(220, 38, 38, 0.2) !important;
+            }
+
             .ec-wrap {
-                max-width: 880px;
+                max-width: 100% !important;
+                padding: 0 !important;
                 margin: 0 auto;
-                padding: 0 16px;
-                font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             }
 
             .ec-hero {

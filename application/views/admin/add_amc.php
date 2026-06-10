@@ -55,17 +55,182 @@
                 --transition-spring: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
             }
 
-            * {
-                box-sizing: border-box;
-                margin: 0;
-                padding: 0;
+            [data-theme="dark"] .amc-form-container {
+                color: var(--text-primary);
+            }
+
+            [data-theme="dark"] .form-card,
+            [data-theme="dark"] .step-card {
+                background: var(--bg-secondary) !important;
+                border-color: var(--border-color) !important;
+            }
+
+            [data-theme="dark"] .form-card-head {
+                background: var(--bg-tertiary) !important;
+                border-color: var(--border-color) !important;
+            }
+
+            [data-theme="dark"] .form-card-head-text h3,
+            [data-theme="dark"] .step-card h6 {
+                color: var(--text-primary) !important;
+            }
+
+            [data-theme="dark"] .form-card-head-text p,
+            [data-theme="dark"] .step-card p {
+                color: var(--text-secondary) !important;
+            }
+
+            [data-theme="dark"] .form-section {
+                border-color: var(--border-color) !important;
+            }
+
+            [data-theme="dark"] .form-section:focus-within {
+                background: var(--bg-tertiary) !important;
+            }
+
+            [data-theme="dark"] .section-label h5 {
+                color: var(--text-primary) !important;
+            }
+
+            [data-theme="dark"] .sec-divider {
+                background: linear-gradient(90deg, var(--border-color), transparent) !important;
+            }
+
+            [data-theme="dark"] .f-group label {
+                color: var(--text-secondary) !important;
+            }
+
+            [data-theme="dark"] .f-group input,
+            [data-theme="dark"] .f-group select,
+            [data-theme="dark"] .f-group textarea {
+                background: var(--bg-tertiary) !important;
+                border-color: var(--border-color) !important;
+                color: var(--text-primary) !important;
+            }
+
+            [data-theme="dark"] .f-group input:focus,
+            [data-theme="dark"] .f-group select:focus,
+            [data-theme="dark"] .f-group textarea:focus {
+                border-color: var(--primary) !important;
+                background: var(--bg-secondary) !important;
+            }
+
+            [data-theme="dark"] .f-group input[readonly] {
+                background: var(--bg-primary) !important;
+                color: var(--text-secondary) !important;
+            }
+
+            [data-theme="dark"] .f-group input::placeholder,
+            [data-theme="dark"] .f-group textarea::placeholder {
+                color: var(--text-tertiary) !important;
+            }
+
+            [data-theme="dark"] .f-help {
+                color: var(--text-tertiary) !important;
+            }
+
+            [data-theme="dark"] .form-tip.tip-info {
+                background: rgba(99, 102, 241, 0.12) !important;
+                border-color: rgba(99, 102, 241, 0.2) !important;
+                color: #a5b4fc !important;
+            }
+
+            [data-theme="dark"] .form-tip.tip-error {
+                background: rgba(239, 68, 68, 0.1) !important;
+                border-color: rgba(239, 68, 68, 0.2) !important;
+                color: #fca5a5 !important;
+            }
+
+            [data-theme="dark"] .preview-item {
+                background: var(--bg-tertiary) !important;
+                border-color: var(--border-color) !important;
+            }
+
+            [data-theme="dark"] .preview-item.filled {
+                background: var(--bg-secondary) !important;
+                border-color: rgba(99, 102, 241, 0.25) !important;
+            }
+
+            [data-theme="dark"] .preview-label {
+                color: var(--text-tertiary) !important;
+            }
+
+            [data-theme="dark"] .preview-value {
+                color: var(--text-primary) !important;
+            }
+
+            [data-theme="dark"] .preview-value.placeholder {
+                color: var(--text-tertiary) !important;
+            }
+
+            [data-theme="dark"] .form-footer {
+                background: var(--bg-secondary) !important;
+                border-color: var(--border-color) !important;
+            }
+
+            [data-theme="dark"] .form-footer-info {
+                color: var(--text-tertiary) !important;
+            }
+
+            [data-theme="dark"] .f-btn.ghost {
+                background: var(--bg-tertiary) !important;
+                border-color: var(--border-color) !important;
+                color: var(--text-primary) !important;
+            }
+
+            [data-theme="dark"] .f-btn.ghost:hover {
+                background: var(--bg-primary) !important;
+                color: var(--text-primary) !important;
+            }
+
+            /* Preview cards */
+            [data-theme="dark"] .preview-item {
+                background: var(--bg-tertiary) !important;
+                border-color: var(--border-color) !important;
+            }
+
+            [data-theme="dark"] .preview-item.filled {
+                background: var(--bg-secondary) !important;
+                border-color: rgba(99, 102, 241, 0.25) !important;
+            }
+
+            [data-theme="dark"] .preview-label {
+                color: var(--text-tertiary) !important;
+            }
+
+            [data-theme="dark"] .preview-value {
+                color: var(--text-primary) !important;
+            }
+
+            [data-theme="dark"] .preview-value.placeholder {
+                color: var(--text-tertiary) !important;
+            }
+
+            /* Customer selected badge */
+            [data-theme="dark"] .customer-selected-badge {
+                background: rgba(16, 185, 129, 0.12) !important;
+                border-color: rgba(16, 185, 129, 0.2) !important;
+            }
+
+            [data-theme="dark"] .customer-selected-badge .cs-text {
+                color: #6ee7b7 !important;
+            }
+
+            /* Product select */
+            [data-theme="dark"] #amcProduct {
+                background: var(--bg-tertiary) !important;
+                border-color: var(--border-color) !important;
+                color: var(--text-primary) !important;
+            }
+
+            [data-theme="dark"] #amcProduct:disabled {
+                color: var(--text-tertiary) !important;
+                opacity: 0.6 !important;
             }
 
             .amc-form-container {
                 max-width: 1120px;
                 margin: 0 auto;
-                font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-                -webkit-font-smoothing: antialiased;
                 color: var(--slate-800);
             }
 
@@ -180,11 +345,12 @@
                 display: inline-flex;
                 align-items: center;
                 gap: 8px;
-                background: rgba(255, 255, 255, 0.12);
+                background: var(--primary);
                 backdrop-filter: blur(16px);
                 -webkit-backdrop-filter: blur(16px);
-                border: 1px solid rgba(255, 255, 255, 0.16);
+                border: 1.5px solid var(--primary-dark);
                 color: #fff;
+                margin-bottom: 20px;
                 padding: 12px 24px;
                 border-radius: var(--radius-sm);
                 font-size: 0.84rem;
@@ -196,7 +362,7 @@
             }
 
             .btn-back:hover {
-                background: rgba(255, 255, 255, 0.22);
+                background: var(--primary-dark);
                 transform: translateY(-2px);
                 box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
                 color: #fff;
@@ -1197,7 +1363,7 @@
         </div>
 
         <script>
-            document.addEventListener('DOMContentLoaded', function () {
+            document.addEventListener('DOMContentLoaded', function() {
                 const customerInput = document.getElementById('amcCustomer');
                 const customerIdInput = document.getElementById('amcCustomerId');
                 const productSelect = document.getElementById('amcProduct');
@@ -1211,14 +1377,14 @@
                 const selectedProductId = <?= json_encode($selectedProductId) ?>;
 
                 const customers = <?= json_encode(array_map(function ($customer) {
-                    return [
-                        'id' => (int) $customer->id,
-                        'name' => (string) $customer->name,
-                        'mobile' => (string) $customer->mobile,
-                        'address' => (string) $customer->address,
-                        'label' => (string) $customer->name . ' - ' . (string) $customer->mobile
-                    ];
-                }, $customers)) ?>;
+                                        return [
+                                            'id' => (int) $customer->id,
+                                            'name' => (string) $customer->name,
+                                            'mobile' => (string) $customer->mobile,
+                                            'address' => (string) $customer->address,
+                                            'label' => (string) $customer->name . ' - ' . (string) $customer->mobile
+                                        ];
+                                    }, $customers)) ?>;
 
                 function setPreview(customer) {
                     const nameEl = document.getElementById('previewCustomerName');
@@ -1293,10 +1459,10 @@
                     const value = (term || '').trim().toLowerCase();
                     if (!value) return null;
 
-                    return customers.find(function (customer) {
-                        return customer.label.toLowerCase() === value
-                            || customer.mobile.toLowerCase() === value
-                            || customer.name.toLowerCase() === value;
+                    return customers.find(function(customer) {
+                        return customer.label.toLowerCase() === value ||
+                            customer.mobile.toLowerCase() === value ||
+                            customer.name.toLowerCase() === value;
                     }) || null;
                 }
 
@@ -1304,10 +1470,14 @@
                     resetProducts('Loading products...');
 
                     fetch(customerProductsBaseUrl + '/' + customerId, {
-                        headers: { 'X-Requested-With': 'XMLHttpRequest' }
-                    })
-                        .then(function (response) { return response.json(); })
-                        .then(function (data) {
+                            headers: {
+                                'X-Requested-With': 'XMLHttpRequest'
+                            }
+                        })
+                        .then(function(response) {
+                            return response.json();
+                        })
+                        .then(function(data) {
                             const products = data && Array.isArray(data.products) ? data.products : [];
                             productSelect.innerHTML = '';
 
@@ -1321,12 +1491,12 @@
                                 return;
                             }
 
-                            products.forEach(function (product) {
+                            products.forEach(function(product) {
                                 const option = document.createElement('option');
                                 option.value = product.id;
-                                option.textContent = product.product_name
-                                    + (product.product_modal ? ' | Model: ' + product.product_modal : '')
-                                    + (product.date_of_purchase ? ' | Purchase: ' + product.date_of_purchase : '');
+                                option.textContent = product.product_name +
+                                    (product.product_modal ? ' | Model: ' + product.product_modal : '') +
+                                    (product.date_of_purchase ? ' | Purchase: ' + product.date_of_purchase : '');
 
                                 if (String(preselectedProductId || '') === String(product.id)) {
                                     option.selected = true;
@@ -1337,7 +1507,7 @@
 
                             productSelect.disabled = false;
                         })
-                        .catch(function () {
+                        .catch(function() {
                             resetProducts('Unable to load products');
                         });
                 }
@@ -1361,7 +1531,7 @@
                 updateStatusPreview();
 
                 if (selectedCustomerId) {
-                    const selectedCustomer = customers.find(function (customer) {
+                    const selectedCustomer = customers.find(function(customer) {
                         return String(customer.id) === String(selectedCustomerId);
                     }) || findCustomer(customerInput.value);
 

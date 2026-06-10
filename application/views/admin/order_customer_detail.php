@@ -3,6 +3,161 @@
         <style>
             @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
+            /* ══════════════════════════════════════
+   DARK THEME — Customer View Page
+══════════════════════════════════════ */
+
+            /* Top bar */
+            [data-theme="dark"] .cv-topbar-title {
+                color: var(--text-primary) !important;
+            }
+
+            [data-theme="dark"] .cv-id {
+                background: var(--bg-tertiary) !important;
+                color: var(--text-secondary) !important;
+            }
+
+            [data-theme="dark"] .cv-top-btn {
+                background: var(--bg-secondary) !important;
+                border-color: var(--border-color) !important;
+                color: var(--text-secondary) !important;
+            }
+
+            [data-theme="dark"] .cv-top-btn:hover {
+                background: var(--bg-tertiary) !important;
+                color: var(--text-primary) !important;
+            }
+
+            [data-theme="dark"] .cv-top-btn.primary {
+                background: var(--primary) !important;
+                border-color: var(--primary) !important;
+                color: #fff !important;
+            }
+
+            /* Cards */
+            [data-theme="dark"] .cv-card {
+                background: var(--bg-secondary) !important;
+                border-color: var(--border-color) !important;
+            }
+
+            [data-theme="dark"] .cv-card-head {
+                border-color: var(--border-color) !important;
+            }
+
+            [data-theme="dark"] .cv-card-head h3 {
+                color: var(--text-primary) !important;
+            }
+
+            [data-theme="dark"] .cv-count {
+                background: var(--bg-tertiary) !important;
+                color: var(--primary) !important;
+            }
+
+            /* Info rows */
+            [data-theme="dark"] .cv-info-row {
+                border-color: var(--border-color) !important;
+            }
+
+            [data-theme="dark"] .cv-info-label {
+                color: var(--text-secondary) !important;
+            }
+
+            [data-theme="dark"] .cv-info-label i {
+                color: var(--text-tertiary) !important;
+            }
+
+            [data-theme="dark"] .cv-info-val {
+                color: var(--text-primary) !important;
+            }
+
+            /* Table */
+            [data-theme="dark"] .cv-table th {
+                background: var(--bg-tertiary) !important;
+                color: var(--text-secondary) !important;
+                border-color: var(--border-color) !important;
+            }
+
+            [data-theme="dark"] .cv-table td {
+                color: var(--text-secondary) !important;
+                border-color: var(--border-color) !important;
+            }
+
+            [data-theme="dark"] .cv-table tbody tr {
+                background: var(--bg-secondary) !important;
+            }
+
+            [data-theme="dark"] .cv-table tbody tr:hover {
+                background: var(--bg-tertiary) !important;
+            }
+
+            /* Product cell */
+            [data-theme="dark"] .cv-prod-ico {
+                background: rgba(99, 102, 241, 0.15) !important;
+                color: var(--primary) !important;
+            }
+
+            [data-theme="dark"] .cv-prod-name {
+                color: var(--text-primary) !important;
+            }
+
+            [data-theme="dark"] .cv-prod-model {
+                color: var(--text-tertiary) !important;
+            }
+
+            [data-theme="dark"] .cv-date {
+                color: var(--text-secondary) !important;
+            }
+
+            [data-theme="dark"] .cv-date i {
+                color: var(--text-tertiary) !important;
+            }
+
+            [data-theme="dark"] .cv-price {
+                color: var(--text-primary) !important;
+            }
+
+            /* Num chip */
+            [data-theme="dark"] .cv-num {
+                background: var(--bg-tertiary) !important;
+                color: var(--text-secondary) !important;
+            }
+
+            /* Service chip */
+            [data-theme="dark"] .cv-svc {
+                background: var(--bg-tertiary) !important;
+                color: var(--text-secondary) !important;
+            }
+
+            /* Empty state */
+            [data-theme="dark"] .cv-empty h4 {
+                color: var(--text-secondary) !important;
+            }
+
+            [data-theme="dark"] .cv-empty p {
+                color: var(--text-tertiary) !important;
+            }
+
+            [data-theme="dark"] .cv-empty i {
+                color: var(--text-tertiary) !important;
+            }
+
+            /* Footer */
+            [data-theme="dark"] .cv-footer {
+                color: var(--text-tertiary) !important;
+            }
+
+            [data-theme="dark"] .cv-footer strong {
+                color: var(--text-secondary) !important;
+            }
+
+            /* Mobile card rows */
+            @media (max-width: 768px) {
+                [data-theme="dark"] .cv-table tbody tr {
+                    background: var(--bg-secondary) !important;
+                    border-color: var(--border-color) !important;
+                }
+            }
+
             .cv-wrap {
                 max-width: 1200px;
                 margin: 0 auto;

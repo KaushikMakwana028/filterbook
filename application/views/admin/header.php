@@ -59,9 +59,13 @@ $isHrMenu        = in_array($currentController, ['employee', 'attendance', 'payr
 	<link href="<?= base_url('assets/plugins/metismenu/css/metisMenu.min.css') ?>" rel="stylesheet">
 	<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet">
 	<link href="<?= base_url('assets/css/pace.min.css') ?>" rel="stylesheet">
+	<link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
 	<script src="<?= base_url('assets/js/pace.min.js') ?>"></script>
 
-	<title><?= isset($user_data->store_name) ? htmlspecialchars($user_data->store_name) : 'Admin' ?></title>
+
+	<title>
+		<?= isset($user_data->store_name) ? strtoupper(htmlspecialchars($user_data->store_name)) : 'ADMIN' ?>
+	</title>
 
 	<style>
 		/* ============================================================
@@ -674,6 +678,227 @@ $isHrMenu        = in_array($currentController, ['employee', 'attendance', 'payr
 				padding: var(--sp-md);
 			}
 		}
+
+		/* ============================================================
+   GLOBAL DARK THEME - applies to ALL pages
+   ============================================================ */
+
+		/* Fix page wrapper backgrounds */
+		[data-theme="dark"] .page-wrapper,
+		[data-theme="dark"] .page-content {
+			background: var(--bg-primary) !important;
+		}
+
+		/* All white card surfaces */
+		[data-theme="dark"] .s-card,
+		[data-theme="dark"] .tbl-card,
+		[data-theme="dark"] .qr-section,
+		[data-theme="dark"] .analytics,
+		[data-theme="dark"] .plan-warning-card,
+		[data-theme="dark"] .card,
+		[data-theme="dark"] .box,
+		[data-theme="dark"] .panel,
+		[data-theme="dark"] .widget,
+		[data-theme="dark"] .modal-content,
+		[data-theme="dark"] .dropdown-menu,
+		[data-theme="dark"] .popover,
+		[data-theme="dark"] .list-group-item {
+			background: var(--bg-secondary) !important;
+			border-color: var(--border-color) !important;
+			color: var(--text-primary) !important;
+		}
+
+		/* Table headers */
+		[data-theme="dark"] .tbl-card-header,
+		[data-theme="dark"] .analytics-head,
+		[data-theme="dark"] .a-footer,
+		[data-theme="dark"] .card-header,
+		[data-theme="dark"] .card-footer,
+		[data-theme="dark"] thead,
+		[data-theme="dark"] thead th,
+		[data-theme="dark"] .tbl-card thead th,
+		[data-theme="dark"] .table thead th {
+			background: var(--bg-tertiary) !important;
+			border-color: var(--border-color) !important;
+			color: var(--text-secondary) !important;
+		}
+
+		/* All tables */
+		[data-theme="dark"] table,
+		[data-theme="dark"] .table {
+			color: var(--text-primary) !important;
+			border-color: var(--border-color) !important;
+		}
+
+		[data-theme="dark"] tbody td,
+		[data-theme="dark"] .table tbody td,
+		[data-theme="dark"] .tbl-card tbody td {
+			color: var(--text-secondary) !important;
+			border-color: var(--border-color) !important;
+		}
+
+		[data-theme="dark"] tbody tr:hover,
+		[data-theme="dark"] .table tbody tr:hover,
+		[data-theme="dark"] .tbl-card tbody tr:hover {
+			background: var(--bg-tertiary) !important;
+		}
+
+		/* All inputs, selects, textareas */
+		[data-theme="dark"] input:not([type="checkbox"]):not([type="radio"]):not([type="submit"]):not([type="button"]):not([type="range"]),
+		[data-theme="dark"] select,
+		[data-theme="dark"] textarea,
+		[data-theme="dark"] .form-control,
+		[data-theme="dark"] .form-select,
+		[data-theme="dark"] .select2-container--default .select2-selection--single,
+		[data-theme="dark"] .select2-container--default .select2-selection--multiple {
+			background: var(--bg-tertiary) !important;
+			border-color: var(--border-color) !important;
+			color: var(--text-primary) !important;
+		}
+
+		/* Select2 dropdown */
+		[data-theme="dark"] .select2-dropdown,
+		[data-theme="dark"] .select2-results__option {
+			background: var(--bg-secondary) !important;
+			color: var(--text-primary) !important;
+			border-color: var(--border-color) !important;
+		}
+
+		[data-theme="dark"] .select2-results__option--highlighted {
+			background: var(--bg-tertiary) !important;
+			color: var(--text-primary) !important;
+		}
+
+		[data-theme="dark"] .select2-container--default .select2-selection__rendered {
+			color: var(--text-primary) !important;
+		}
+
+		/* All text */
+		[data-theme="dark"] h1,
+		[data-theme="dark"] h2,
+		[data-theme="dark"] h3,
+		[data-theme="dark"] h4,
+		[data-theme="dark"] h5,
+		[data-theme="dark"] h6,
+		[data-theme="dark"] .s-card-val,
+		[data-theme="dark"] .tbl-card-header h4,
+		[data-theme="dark"] .tbl-customer-name,
+		[data-theme="dark"] .sec-header h3,
+		[data-theme="dark"] .qr-info h3,
+		[data-theme="dark"] .a-val,
+		[data-theme="dark"] .analytics-head h5,
+		[data-theme="dark"] label,
+		[data-theme="dark"] .form-label {
+			color: var(--text-primary) !important;
+		}
+
+		[data-theme="dark"] p,
+		[data-theme="dark"] span:not(.badge):not(.tbl-badge):not(.s-card-badge):not(.a-badge),
+		[data-theme="dark"] .s-card-label,
+		[data-theme="dark"] .tbl-customer-phone,
+		[data-theme="dark"] .tbl-detail-row,
+		[data-theme="dark"] .a-lbl,
+		[data-theme="dark"] .a-time,
+		[data-theme="dark"] .a-legend-item,
+		[data-theme="dark"] .text-muted,
+		[data-theme="dark"] small,
+		[data-theme="dark"] .form-text {
+			color: var(--text-secondary) !important;
+		}
+
+		/* Buttons - ghost/outline only, keep colored buttons as-is */
+		[data-theme="dark"] .btn-light,
+		[data-theme="dark"] .btn-outline-secondary,
+		[data-theme="dark"] .btn-secondary,
+		[data-theme="dark"] .q-btn.ghost {
+			background: var(--bg-tertiary) !important;
+			border-color: var(--border-color) !important;
+			color: var(--text-primary) !important;
+		}
+
+		/* Navigation/tabs */
+		[data-theme="dark"] .nav-tabs,
+		[data-theme="dark"] .nav-tabs .nav-link,
+		[data-theme="dark"] .nav-pills .nav-link {
+			border-color: var(--border-color) !important;
+			color: var(--text-secondary) !important;
+		}
+
+		[data-theme="dark"] .nav-tabs .nav-link.active,
+		[data-theme="dark"] .nav-pills .nav-link.active {
+			background: var(--bg-secondary) !important;
+			color: var(--primary) !important;
+			border-color: var(--border-color) !important;
+		}
+
+		/* Pagination */
+		[data-theme="dark"] .page-link {
+			background: var(--bg-secondary) !important;
+			border-color: var(--border-color) !important;
+			color: var(--text-primary) !important;
+		}
+
+		[data-theme="dark"] .page-item.active .page-link {
+			background: var(--primary) !important;
+			border-color: var(--primary) !important;
+			color: #fff !important;
+		}
+
+		/* Dividers and borders */
+		[data-theme="dark"] hr,
+		[data-theme="dark"] .adm-dropdown-divider,
+		[data-theme="dark"] .sec-line,
+		[data-theme="dark"] .border,
+		[data-theme="dark"] .border-bottom,
+		[data-theme="dark"] .border-top {
+			border-color: var(--border-color) !important;
+		}
+
+		/* Dashboard-specific */
+		[data-theme="dark"] .s-card-bar {
+			background: var(--bg-tertiary) !important;
+		}
+
+		[data-theme="dark"] .a-toggle {
+			background: var(--bg-tertiary) !important;
+			border-color: var(--border-color) !important;
+		}
+
+		[data-theme="dark"] .a-toggle .a-btn {
+			color: var(--text-secondary) !important;
+		}
+
+		[data-theme="dark"] .a-toggle .a-btn.active {
+			background: var(--bg-secondary) !important;
+			color: var(--primary) !important;
+		}
+
+		[data-theme="dark"] .a-refresh,
+		[data-theme="dark"] .a-summary-cell:hover {
+			background: var(--bg-tertiary) !important;
+			border-color: var(--border-color) !important;
+			color: var(--text-secondary) !important;
+		}
+
+		[data-theme="dark"] .qr-img-box {
+			background: var(--bg-secondary) !important;
+			border-color: var(--border-color) !important;
+		}
+
+		[data-theme="dark"] .tbl-empty-state .empty-icon {
+			background: var(--bg-tertiary) !important;
+		}
+
+		/* Fix page-content padding - reduce left/right space on all pages */
+		.adm-page-content {
+			padding: var(--sp-md) var(--sp-md) !important;
+		}
+
+		@media (min-width: 1025px) {
+			.adm-page-content {
+				padding: 20px 24px !important;
+			}
+		}
 	</style>
 
 	<!-- Prevent theme flash -->
@@ -793,7 +1018,7 @@ $isHrMenu        = in_array($currentController, ['employee', 'attendance', 'payr
 				<div class="adm-user-menu" id="admUserMenu">
 					<button class="adm-user-btn" id="admUserBtn">
 						<img src="<?= $headerProfileImage ?>" alt="avatar">
-						<span class="u-name"><?= htmlspecialchars($user_data->name ?? $user_data->store_name ?? 'Admin') ?></span>
+						<span class="u-name"><?= htmlspecialchars($user_data->store_name ?? $user_data->name ?? 'Admin') ?></span>
 						<i class="fa-solid fa-chevron-down u-chevron"></i>
 					</button>
 

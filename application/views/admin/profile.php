@@ -1,4 +1,145 @@
 <style>
+    /* ══════════════════════════════════════
+   DARK THEME — Profile Page
+══════════════════════════════════════ */
+
+    /* Left profile card */
+    [data-theme="dark"] .profile-card {
+        background: var(--bg-secondary) !important;
+        border-color: var(--border-color) !important;
+    }
+
+    [data-theme="dark"] .profile-card-body h2 {
+        color: var(--text-primary) !important;
+    }
+
+    [data-theme="dark"] .profile-role {
+        color: var(--text-secondary) !important;
+    }
+
+    [data-theme="dark"] .profile-divider {
+        background: var(--border-color) !important;
+    }
+
+    [data-theme="dark"] .profile-detail-item {
+        border-color: var(--border-color) !important;
+        background: var(--bg-tertiary) !important;
+    }
+
+    [data-theme="dark"] .profile-detail-label {
+        color: var(--text-tertiary) !important;
+    }
+
+    [data-theme="dark"] .profile-detail-value {
+        color: var(--text-primary) !important;
+    }
+
+    [data-theme="dark"] .profile-detail-icon {
+        background: rgba(99, 102, 241, 0.15) !important;
+        color: var(--primary) !important;
+    }
+
+    /* Avatar border */
+    [data-theme="dark"] .profile-avatar-wrap img {
+        border-color: var(--bg-secondary) !important;
+    }
+
+    /* Right form card */
+    [data-theme="dark"] .profile-form-card {
+        background: var(--bg-secondary) !important;
+        border-color: var(--border-color) !important;
+    }
+
+    [data-theme="dark"] .form-header {
+        border-color: var(--border-color) !important;
+    }
+
+    [data-theme="dark"] .form-header h3 {
+        color: var(--text-primary) !important;
+    }
+
+    [data-theme="dark"] .form-header p {
+        color: var(--text-tertiary) !important;
+    }
+
+    [data-theme="dark"] .form-header-icon {
+        background: rgba(99, 102, 241, 0.15) !important;
+        color: var(--primary) !important;
+    }
+
+    /* Form fields */
+    [data-theme="dark"] .form-label {
+        color: var(--text-secondary) !important;
+    }
+
+    [data-theme="dark"] .form-label .label-hint {
+        color: var(--text-tertiary) !important;
+    }
+
+    [data-theme="dark"] .form-control {
+        background: var(--bg-tertiary) !important;
+        border-color: var(--border-color) !important;
+        color: var(--text-primary) !important;
+    }
+
+    [data-theme="dark"] .form-control:focus {
+        background: var(--bg-secondary) !important;
+        border-color: var(--primary) !important;
+    }
+
+    [data-theme="dark"] .form-control::placeholder {
+        color: var(--text-tertiary) !important;
+    }
+
+    [data-theme="dark"] .input-wrapper .input-icon {
+        color: var(--text-tertiary) !important;
+    }
+
+    /* Section divider */
+    [data-theme="dark"] .form-section-label {
+        color: var(--text-tertiary) !important;
+    }
+
+    [data-theme="dark"] .form-section-line {
+        background: var(--border-color) !important;
+    }
+
+    /* Form footer */
+    [data-theme="dark"] .form-footer {
+        border-color: var(--border-color) !important;
+    }
+
+    [data-theme="dark"] .btn-secondary {
+        background: var(--bg-tertiary) !important;
+        border-color: var(--border-color) !important;
+        color: var(--text-secondary) !important;
+    }
+
+    [data-theme="dark"] .btn-secondary:hover {
+        background: var(--bg-primary) !important;
+        color: var(--text-primary) !important;
+    }
+
+    /* Flash messages */
+    [data-theme="dark"] .flash-success {
+        background: rgba(16, 185, 129, 0.1) !important;
+        border-color: rgba(16, 185, 129, 0.2) !important;
+        color: #6ee7b7 !important;
+    }
+
+    [data-theme="dark"] .flash-error {
+        background: rgba(239, 68, 68, 0.1) !important;
+        border-color: rgba(239, 68, 68, 0.2) !important;
+        color: #fca5a5 !important;
+    }
+
+    /* Mobile dark card fix */
+    @media (max-width: 768px) {
+        [data-theme="dark"] .profile-card {
+            background: var(--bg-secondary) !important;
+        }
+    }
+
     /* ===== PROFILE PAGE ===== */
     .profile-wrapper {
         display: flex;

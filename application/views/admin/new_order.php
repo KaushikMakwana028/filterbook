@@ -24,6 +24,189 @@
         --ord-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
+    /* ── Full width fix ── */
+    .page-wrapper,
+    .page-content {
+        background: transparent !important;
+    }
+
+    /* ── Dark Theme ── */
+    [data-theme="dark"] {
+        --ord-text: var(--text-primary);
+        --ord-text-secondary: #94a3b8;
+        --ord-text-muted: #64748b;
+        --ord-border: var(--border-color);
+        --ord-bg: var(--bg-tertiary);
+        --ord-white: var(--bg-secondary);
+    }
+
+    [data-theme="dark"] .ord-card,
+    [data-theme="dark"] .ord-summary-card {
+        background: var(--bg-secondary) !important;
+        border-color: var(--border-color) !important;
+    }
+
+    [data-theme="dark"] .ord-card-header {
+        background: var(--bg-tertiary) !important;
+        border-color: var(--border-color) !important;
+    }
+
+    [data-theme="dark"] .ord-card-header .header-info h5 {
+        color: var(--text-primary) !important;
+    }
+
+    [data-theme="dark"] .ord-card-header .header-info p {
+        color: var(--text-secondary) !important;
+    }
+
+    [data-theme="dark"] .ord-field label {
+        color: var(--text-secondary) !important;
+    }
+
+    [data-theme="dark"] .ord-field .form-control,
+    [data-theme="dark"] .ord-field .form-select {
+        background: var(--bg-tertiary) !important;
+        border-color: var(--border-color) !important;
+        color: var(--text-primary) !important;
+    }
+
+    [data-theme="dark"] .ord-field .form-control::placeholder {
+        color: #475569 !important;
+    }
+
+    [data-theme="dark"] .ord-field .form-control:focus,
+    [data-theme="dark"] .ord-field .form-select:focus {
+        background: var(--bg-secondary) !important;
+        border-color: var(--primary) !important;
+    }
+
+    [data-theme="dark"] .ord-field .form-control:read-only {
+        background: var(--bg-primary) !important;
+        color: var(--text-secondary) !important;
+    }
+
+    [data-theme="dark"] .ord-field .field-icon {
+        color: #475569 !important;
+    }
+
+    [data-theme="dark"] .ord-pill-toggle {
+        background: var(--bg-tertiary) !important;
+    }
+
+    [data-theme="dark"] .ord-status-bar {
+        background: var(--bg-tertiary) !important;
+        color: var(--text-secondary) !important;
+    }
+
+    [data-theme="dark"] .ord-status-bar strong {
+        color: var(--text-primary) !important;
+    }
+
+    [data-theme="dark"] .ord-divider span {
+        color: var(--text-secondary) !important;
+    }
+
+    [data-theme="dark"] .ord-divider::before,
+    [data-theme="dark"] .ord-divider::after {
+        background: linear-gradient(90deg, transparent, var(--border-color), transparent) !important;
+    }
+
+    [data-theme="dark"] .ord-emi-panel {
+        background: rgba(245, 158, 11, 0.05) !important;
+        border-color: rgba(245, 158, 11, 0.2) !important;
+    }
+
+    [data-theme="dark"] .ord-emi-panel .emi-top h6 {
+        color: #f59e0b !important;
+    }
+
+    [data-theme="dark"] .ord-customer-panel {
+        background: rgba(99, 102, 241, 0.08) !important;
+        border-color: rgba(99, 102, 241, 0.2) !important;
+    }
+
+    [data-theme="dark"] .ord-customer-panel .panel-title h6 {
+        color: var(--text-primary) !important;
+    }
+
+    [data-theme="dark"] .ord-lookup-note {
+        background: rgba(99, 102, 241, 0.08) !important;
+        border-color: rgba(99, 102, 241, 0.2) !important;
+        color: var(--text-secondary) !important;
+    }
+
+    /* Summary card */
+    [data-theme="dark"] .ord-summary-card .sum-header {
+        background: rgba(99, 102, 241, 0.1) !important;
+        border-color: var(--border-color) !important;
+    }
+
+    [data-theme="dark"] .ord-summary-card .sum-header h6 {
+        color: var(--text-primary) !important;
+    }
+
+    [data-theme="dark"] .sum-row {
+        border-color: var(--border-color) !important;
+    }
+
+    [data-theme="dark"] .sum-row .sum-label {
+        color: var(--text-secondary) !important;
+    }
+
+    [data-theme="dark"] .sum-row .summary-value {
+        color: var(--text-primary) !important;
+    }
+
+    [data-theme="dark"] .sum-row .summary-value.empty {
+        color: #334155 !important;
+    }
+
+    [data-theme="dark"] .ord-field .optional-tag {
+        background: var(--bg-tertiary) !important;
+        color: var(--text-secondary) !important;
+    }
+
+    /* Select2 dark */
+    [data-theme="dark"] .select2-container--default .select2-selection--single {
+        background: var(--bg-tertiary) !important;
+        border-color: var(--border-color) !important;
+    }
+
+    [data-theme="dark"] .select2-container--default .select2-selection--single .select2-selection__rendered {
+        color: var(--text-primary) !important;
+    }
+
+    [data-theme="dark"] .select2-dropdown {
+        background: var(--bg-secondary) !important;
+        border-color: var(--border-color) !important;
+    }
+
+    [data-theme="dark"] .select2-results__option {
+        color: var(--text-primary) !important;
+        background: var(--bg-secondary) !important;
+    }
+
+    [data-theme="dark"] .select2-search--dropdown .select2-search__field {
+        background: var(--bg-tertiary) !important;
+        border-color: var(--border-color) !important;
+        color: var(--text-primary) !important;
+    }
+
+    [data-theme="dark"] .ord-card-header {
+        background: var(--bg-tertiary) !important;
+        border-bottom: 1px solid var(--border-color) !important;
+    }
+
+    /* Fix card body background */
+    [data-theme="dark"] .ord-card-body {
+        background: var(--bg-secondary) !important;
+    }
+
+    /* Fix summary card body */
+    [data-theme="dark"] .ord-summary-card .sum-body {
+        background: var(--bg-secondary) !important;
+    }
+
     /* ===== Page Header ===== */
     .ord-page-header {
         background: linear-gradient(135deg, var(--ord-primary) 0%, #560bad 100%);
@@ -63,6 +246,23 @@
         top: 20%;
         right: 25%;
         background: rgba(255, 255, 255, 0.03);
+    }
+
+    .row.g-4 {
+        --bs-gutter-x: 1.5rem !important;
+        --bs-gutter-y: 1.5rem !important;
+    }
+
+    .ord-card-body {
+        padding: 24px !important;
+    }
+
+    .ord-card-header {
+        padding: 18px 24px !important;
+    }
+
+    .ord-page-header {
+        margin-bottom: 24px !important;
     }
 
     .ord-page-header .header-content {
@@ -147,6 +347,7 @@
         border: 1px solid var(--ord-border);
         overflow: hidden;
         height: 100%;
+        margin-bottom: 20px;
         opacity: 0;
         transform: translateY(25px);
         animation: ordFadeUp 0.55s ease forwards;
@@ -968,33 +1169,33 @@
                         Fill in customer and product details to create a new order
                     </p>
                 </div>
-                <a href="<?= base_url('orders'); ?>" class="ord-back-btn">
+                <a href="<?= base_url('admin/orders'); ?>" class="ord-back-btn">
                     <i class="bx bx-arrow-back"></i>
                     Back to Orders
                 </a>
             </div>
         </div>
         <!-- Flash Messages -->
-<?php if ($this->session->flashdata('success')): ?>
-    <div class="alert alert-success" style="padding: 15px; margin-bottom: 20px; background: #D1FAE5; border: 1px solid #34D399; border-radius: 8px; color: #065F46;">
-        <i class="fas fa-check-circle"></i>
-        <?= $this->session->flashdata('success') ?>
-    </div>
-<?php endif; ?>
+        <?php if ($this->session->flashdata('success')): ?>
+            <div class="alert alert-success" style="padding: 15px; margin-bottom: 20px; background: #D1FAE5; border: 1px solid #34D399; border-radius: 8px; color: #065F46;">
+                <i class="fas fa-check-circle"></i>
+                <?= $this->session->flashdata('success') ?>
+            </div>
+        <?php endif; ?>
 
-<?php if ($this->session->flashdata('error')): ?>
-    <div class="alert alert-danger" style="padding: 15px; margin-bottom: 20px; background: #FEE2E2; border: 1px solid #F87171; border-radius: 8px; color: #991B1B;">
-        <i class="fas fa-exclamation-circle"></i>
-        <?= $this->session->flashdata('error') ?>
-    </div>
-<?php endif; ?>
+        <?php if ($this->session->flashdata('error')): ?>
+            <div class="alert alert-danger" style="padding: 15px; margin-bottom: 20px; background: #FEE2E2; border: 1px solid #F87171; border-radius: 8px; color: #991B1B;">
+                <i class="fas fa-exclamation-circle"></i>
+                <?= $this->session->flashdata('error') ?>
+            </div>
+        <?php endif; ?>
 
-<?php if ($this->session->flashdata('warning')): ?>
-    <div class="alert alert-warning" style="padding: 15px; margin-bottom: 20px; background: #FEF3C7; border: 1px solid #FBBF24; border-radius: 8px; color: #92400E;">
-        <i class="fas fa-exclamation-triangle"></i>
-        <?= $this->session->flashdata('warning') ?>
-    </div>
-<?php endif; ?>
+        <?php if ($this->session->flashdata('warning')): ?>
+            <div class="alert alert-warning" style="padding: 15px; margin-bottom: 20px; background: #FEF3C7; border: 1px solid #FBBF24; border-radius: 8px; color: #92400E;">
+                <i class="fas fa-exclamation-triangle"></i>
+                <?= $this->session->flashdata('warning') ?>
+            </div>
+        <?php endif; ?>
 
         <!-- ===== Main Form ===== -->
         <form id="orderForm" action="<?= site_url('admin/orders/save_order') ?>" method="post" novalidate>
@@ -1139,16 +1340,16 @@
                                     <i class="bx bx-purchase-tag field-icon"></i>
                                     <input type="text" class="form-control" id="product_name" name="product_name"
                                         placeholder="Enter product name" list="productNameList" autocomplete="off" required>
-                                  <datalist id="productNameList">
-    <?php if (!empty($products)) { ?>
-        <?php foreach ($products as $product) { ?>
-            <option 
-                value="<?= htmlspecialchars($product->name) ?>" 
-                data-id="<?= $product->id ?>">
-            </option>
-        <?php } ?>
-    <?php } ?>
-</datalist>
+                                    <datalist id="productNameList">
+                                        <?php if (!empty($products)) { ?>
+                                            <?php foreach ($products as $product) { ?>
+                                                <option
+                                                    value="<?= htmlspecialchars($product->name) ?>"
+                                                    data-id="<?= $product->id ?>">
+                                                </option>
+                                            <?php } ?>
+                                        <?php } ?>
+                                    </datalist>
                                 </div>
                                 <div class="invalid-feedback">
                                     <i class="bx bx-error-circle"></i>
@@ -1440,16 +1641,16 @@
         <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
         <script>
-            $(document).ready(function () {
+            $(document).ready(function() {
                 const productMasterMap = {
                     <?php if (!empty($products)) { ?>
-                        <?php foreach ($products as $index => $product) { ?>
-                            "<?= strtolower(addslashes(trim((string) $product->name))) ?>": {
+                        <?php foreach ($products as $index => $product) { ?> "<?= strtolower(addslashes(trim((string) $product->name))) ?>": {
                                 id: <?= (int) $product->id ?>,
                                 name: "<?= addslashes((string) $product->name) ?>",
                                 purchase_price: "<?= addslashes((string) $product->purchase_price) ?>",
                                 sell_price: "<?= addslashes((string) ($product->sell_price !== null ? $product->sell_price : '')) ?>"
-                            }<?= $index < count($products) - 1 ? ',' : '' ?>
+                            }
+                            <?= $index < count($products) - 1 ? ',' : '' ?>
                         <?php } ?>
                     <?php } ?>
                 };
@@ -1457,7 +1658,7 @@
                 /* ===============================
                 BOOTSTRAP VALIDATION
                 ================================*/
-                $('#orderForm').on('submit', function (e) {
+                $('#orderForm').on('submit', function(e) {
 
                     let form = this;
                     let isValid = true;
@@ -1467,7 +1668,7 @@
                     $(form).find('.ord-field').removeClass('is-invalid is-valid');
 
                     // Check each required field
-                    $(form).find('[required]').each(function () {
+                    $(form).find('[required]').each(function() {
 
                         let $field = $(this);
                         let $ordField = $field.closest('.ord-field');
@@ -1515,7 +1716,7 @@
                 });
 
                 // Real-time validation: clear error on input
-                $(document).on('input change', '.ord-field .form-control, .ord-field .form-select', function () {
+                $(document).on('input change', '.ord-field .form-control, .ord-field .form-select', function() {
 
                     let $field = $(this);
                     let $ordField = $field.closest('.ord-field');
@@ -1555,7 +1756,7 @@
                     width: '100%',
                     allowClear: true,
                     minimumInputLength: 1,
-                    matcher: function (params, data) {
+                    matcher: function(params, data) {
                         if ($.trim(params.term) === '') return data;
                         if (typeof data.text === 'undefined') return null;
 
@@ -1688,9 +1889,9 @@
                         $('#product_name').val(product.name);
                     }
 
-                    const selectedPrice = product.sell_price !== undefined && product.sell_price !== null && product.sell_price !== ''
-                        ? product.sell_price
-                        : product.purchase_price;
+                    const selectedPrice = product.sell_price !== undefined && product.sell_price !== null && product.sell_price !== '' ?
+                        product.sell_price :
+                        product.purchase_price;
 
                     if (selectedPrice !== undefined && selectedPrice !== null && selectedPrice !== '') {
                         $('#inputProductTags').val(selectedPrice);
@@ -1722,7 +1923,7 @@
                             product_name: productName
                         },
                         dataType: "json",
-                        success: function (res) {
+                        success: function(res) {
                             let hasCustomer = !!(res && res.customer);
                             let hasOrder = !!(res && res.order);
                             let hasProduct = !!(res && res.product);
@@ -1762,7 +1963,7 @@
                                 showLookupNote('');
                             }
                         },
-                        error: function (xhr) {
+                        error: function(xhr) {
                             console.log(xhr.responseText);
                         }
                     });
@@ -1776,14 +1977,14 @@
                 /* ===============================
                 CUSTOMER MOBILE AUTO FETCH
                 ================================*/
-                $('#ordcustomerMobile').on('input', function () {
+                $('#ordcustomerMobile').on('input', function() {
                     triggerOrderLookup();
                 });
 
                 /* ===============================
                 CUSTOMER SELECT AUTO FILL
                 ================================*/
-                $('#cust_id').change(function () {
+                $('#cust_id').change(function() {
 
                     let option = $(this).find(':selected');
                     if (!option.val()) return;
@@ -1808,14 +2009,16 @@
                 /* ===============================
                 PAYMENT TYPE SWITCH
                 ================================*/
-                $('input[name="customRadio"]').change(function () {
-                    applyPaymentType($(this).val(), { markManual: true });
+                $('input[name="customRadio"]').change(function() {
+                    applyPaymentType($(this).val(), {
+                        markManual: true
+                    });
                 });
 
                 /* ===============================
                 PRODUCT NAME SUMMARY
                 ================================*/
-                $('#product_name').on('input', function () {
+                $('#product_name').on('input', function() {
                     let val = $(this).val();
                     $('#sumProduct').text(val ? val : 'Not set').removeClass('empty');
 
@@ -1831,11 +2034,11 @@
                 /* ===============================
                 SUMMARY FIELD UPDATES
                 ================================*/
-                $('#cust_Name').on('input', function () {
+                $('#cust_Name').on('input', function() {
                     $('#sumCustomer').text($(this).val() || 'Not set');
                 });
 
-                $('#ordcustomerMobile').on('input', function () {
+                $('#ordcustomerMobile').on('input', function() {
                     $('#sumMobile').text($(this).val() || 'Not set');
                 });
 
@@ -1843,14 +2046,14 @@
                 //     $('#sumArea').text($(this).val() || 'Not set');
                 // });
 
-                $('#total_services').on('input', function () {
+                $('#total_services').on('input', function() {
                     $('#sumServices').text($(this).val() || 'Not set');
                 });
 
                 /* ===============================
                 PURCHASE DATE
                 ================================*/
-                $('#purchasedate').change(function () {
+                $('#purchasedate').change(function() {
 
                     let val = $(this).val();
 
@@ -1872,20 +2075,20 @@
                 /* ===============================
                 SERVICE INTERVAL
                 ================================*/
-                $('#inputProductType').change(function () {
+                $('#inputProductType').change(function() {
                     let text = $(this).find('option:selected').text();
                     $('#sumInterval').text($(this).val() ? text : 'Not set');
                     syncServiceStartDate(true);
                 });
 
-                $('#start_service_date').on('input change', function () {
+                $('#start_service_date').on('input change', function() {
                     serviceStartDateManuallyChanged = !!$(this).val();
                 });
 
                 /* ===============================
                 PRICE + TOTAL
                 ================================*/
-                $('#inputProductTags').on('input', function () {
+                $('#inputProductTags').on('input', function() {
 
                     let price = parseFloat($(this).val()) || 0;
                     $('#sumTotal').text(formatRupees(price));

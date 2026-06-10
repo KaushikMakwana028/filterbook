@@ -29,6 +29,127 @@
                 --transition: all 0.2s ease;
             }
 
+            [data-theme="dark"] .cl-page {
+                --text: var(--text-primary);
+                --text-secondary: #94a3b8;
+                --text-muted: #64748b;
+                --border: var(--border-color);
+                --border-light: rgba(255, 255, 255, 0.05);
+                --bg: var(--bg-tertiary);
+                --white: var(--bg-secondary);
+            }
+
+            [data-theme="dark"] .cl-table-card {
+                background: var(--bg-secondary) !important;
+                border-color: var(--border-color) !important;
+            }
+
+            [data-theme="dark"] .cl-table thead {
+                background: var(--bg-tertiary) !important;
+            }
+
+            [data-theme="dark"] .cl-table thead th {
+                color: #94a3b8 !important;
+            }
+
+            [data-theme="dark"] .cl-table tbody tr {
+                border-color: rgba(255, 255, 255, 0.05) !important;
+            }
+
+            [data-theme="dark"] .cl-table tbody tr:hover {
+                background: var(--bg-tertiary) !important;
+            }
+
+            [data-theme="dark"] .cl-table tbody td {
+                color: #cbd5e1 !important;
+            }
+
+            [data-theme="dark"] .cl-customer-name {
+                color: #f1f5f9 !important;
+            }
+
+            [data-theme="dark"] .cl-customer-id {
+                color: #64748b !important;
+            }
+
+            [data-theme="dark"] .cl-mobile {
+                color: #94a3b8 !important;
+            }
+
+            [data-theme="dark"] .cl-address-text {
+                color: #94a3b8 !important;
+            }
+
+            [data-theme="dark"] .cl-table-footer {
+                background: var(--bg-secondary) !important;
+                border-color: var(--border-color) !important;
+            }
+
+            [data-theme="dark"] .cl-table-info,
+            [data-theme="dark"] .cl-table-info strong {
+                color: #94a3b8 !important;
+            }
+
+            [data-theme="dark"] .cl-table-info strong {
+                color: #e2e8f0 !important;
+            }
+
+            [data-theme="dark"] .cl-btn-secondary {
+                background: var(--bg-tertiary) !important;
+                border-color: var(--border-color) !important;
+                color: #e2e8f0 !important;
+            }
+
+            [data-theme="dark"] .cl-search-box input,
+            [data-theme="dark"] .cl-per-page select {
+                background: var(--bg-tertiary) !important;
+                border-color: var(--border-color) !important;
+                color: #e2e8f0 !important;
+            }
+
+            [data-theme="dark"] .cl-page-btn {
+                background: var(--bg-secondary) !important;
+                border-color: var(--border-color) !important;
+                color: #94a3b8 !important;
+            }
+
+            [data-theme="dark"] .cl-page-btn.active {
+                background: var(--primary) !important;
+                border-color: var(--primary) !important;
+                color: #fff !important;
+            }
+
+            [data-theme="dark"] .cl-empty-icon {
+                background: var(--bg-tertiary) !important;
+            }
+
+            [data-theme="dark"] .cl-empty-title {
+                color: #f1f5f9 !important;
+            }
+
+            [data-theme="dark"] .cl-empty-text {
+                color: #94a3b8 !important;
+            }
+
+            [data-theme="dark"] .cl-page-header-left h1 {
+                color: #f1f5f9 !important;
+            }
+
+            [data-theme="dark"] .cl-page-header-left p {
+                color: #94a3b8 !important;
+            }
+
+            /* Mobile card dark fix */
+            [data-theme="dark"] .cl-table tbody tr.cl-data-row {
+                background: var(--bg-secondary) !important;
+                border-color: var(--border-color) !important;
+            }
+
+            [data-theme="dark"] .cl-table tbody tr:not(.cl-data-row) {
+                background: var(--bg-secondary) !important;
+                border-color: var(--border-color) !important;
+            }
+
             .cl-page * {
                 margin: 0;
                 padding: 0;
@@ -42,9 +163,9 @@
             }
 
             .cl-page-content {
-                max-width: 1280px;
-                margin: 0 auto;
-                padding: 2rem;
+                max-width: 100%;
+                margin: 0;
+                padding: 1.25rem 1rem;
             }
 
             /* ── Page Header ── */

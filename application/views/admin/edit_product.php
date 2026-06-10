@@ -60,6 +60,104 @@
         }
     }
 
+    /* ── Dark Theme Fix ── */
+    [data-theme="dark"] .product-card {
+        background: var(--bg-secondary) !important;
+        border-color: var(--border-color) !important;
+        box-shadow: none !important;
+    }
+
+    [data-theme="dark"] .card-body-enhanced {
+        background: var(--bg-secondary) !important;
+    }
+
+    [data-theme="dark"] .section-header {
+        border-color: var(--border-color) !important;
+    }
+
+    [data-theme="dark"] .section-header h6 {
+        color: var(--text-primary) !important;
+    }
+
+    [data-theme="dark"] .form-label-enhanced {
+        color: var(--text-secondary) !important;
+    }
+
+    [data-theme="dark"] .form-control-enhanced,
+    [data-theme="dark"] .form-select-enhanced {
+        background: var(--bg-tertiary) !important;
+        border-color: var(--border-color) !important;
+        color: var(--text-primary) !important;
+    }
+
+    [data-theme="dark"] .form-control-enhanced:focus,
+    [data-theme="dark"] .form-select-enhanced:focus {
+        background: var(--bg-secondary) !important;
+        border-color: var(--primary) !important;
+    }
+
+    [data-theme="dark"] .form-control-enhanced::placeholder {
+        color: var(--text-tertiary) !important;
+    }
+
+    [data-theme="dark"] .info-card {
+        background: var(--bg-tertiary) !important;
+        border-color: var(--border-color) !important;
+    }
+
+    [data-theme="dark"] .info-card-header h6 {
+        color: var(--text-primary) !important;
+    }
+
+    [data-theme="dark"] .info-card-body {
+        color: var(--text-secondary) !important;
+    }
+
+    [data-theme="dark"] .btn-secondary-enhanced {
+        background: var(--bg-tertiary) !important;
+        border-color: var(--border-color) !important;
+        color: var(--text-primary) !important;
+    }
+
+    [data-theme="dark"] .btn-secondary-enhanced:hover {
+        background: var(--bg-primary) !important;
+        color: var(--text-primary) !important;
+    }
+
+    [data-theme="dark"] .form-actions {
+        border-color: var(--border-color) !important;
+    }
+
+    [data-theme="dark"] .back-link {
+        color: var(--text-tertiary) !important;
+    }
+
+    [data-theme="dark"] .breadcrumb-item a,
+    [data-theme="dark"] .breadcrumb-item.active {
+        color: var(--text-secondary) !important;
+    }
+
+    [data-theme="dark"] .number-btn {
+        background: var(--bg-tertiary) !important;
+        color: var(--text-secondary) !important;
+    }
+
+    [data-theme="dark"] .number-btn:hover {
+        background: var(--primary) !important;
+        color: #fff !important;
+    }
+
+    [data-theme="dark"] .alert-enhanced.alert-success {
+        background: rgba(17, 153, 142, 0.1) !important;
+        color: #6ee7b7 !important;
+    }
+
+    [data-theme="dark"] .alert-enhanced.alert-danger {
+        background: rgba(235, 51, 73, 0.1) !important;
+        color: #fca5a5 !important;
+    }
+
+
     /* ========== Breadcrumb ========== */
     .page-breadcrumb {
         animation: fadeInDown 0.5s ease;
@@ -844,7 +942,7 @@
                                     <option value="">Select Category</option>
                                     <?php foreach ($categories as $cat): ?>
                                         <option value="<?php echo $cat->id; ?>" <?php if ($cat->id == $product->category_id)
-                                               echo "selected"; ?>>
+                                                                                    echo "selected"; ?>>
                                             <?php echo htmlspecialchars($cat->name); ?>
                                         </option>
                                     <?php endforeach; ?>
@@ -1029,7 +1127,7 @@ function getStockText($quantity)
 
 <!-- ========== JavaScript ========== -->
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
+    document.addEventListener('DOMContentLoaded', function() {
         const productName = document.getElementById('productName');
         const category = document.getElementById('category');
         const unit = document.getElementById('unit');
@@ -1069,7 +1167,7 @@ function getStockText($quantity)
         }
 
         // ===== Quantity Adjustment =====
-        window.adjustQuantity = function (delta) {
+        window.adjustQuantity = function(delta) {
             const currentValue = parseInt(quantity.value) || 0;
             const newValue = Math.max(0, currentValue + delta);
             quantity.value = newValue;
@@ -1097,7 +1195,7 @@ function getStockText($quantity)
 
         // ===== Quantity Input Listener =====
         if (quantity) {
-            quantity.addEventListener('input', function () {
+            quantity.addEventListener('input', function() {
                 updateStockStatus(parseInt(this.value) || 0);
             });
 
@@ -1107,7 +1205,7 @@ function getStockText($quantity)
 
         // ===== Price Formatting =====
         if (purchasePrice) {
-            purchasePrice.addEventListener('blur', function () {
+            purchasePrice.addEventListener('blur', function() {
                 const value = parseFloat(this.value);
                 if (!isNaN(value)) {
                     this.value = value.toFixed(2);
@@ -1116,7 +1214,7 @@ function getStockText($quantity)
         }
 
         if (sellPrice) {
-            sellPrice.addEventListener('blur', function () {
+            sellPrice.addEventListener('blur', function() {
                 if (this.value === '') {
                     return;
                 }
@@ -1130,7 +1228,7 @@ function getStockText($quantity)
 
         // ===== Form Submit with Loading State =====
         if (editForm) {
-            editForm.addEventListener('submit', function (e) {
+            editForm.addEventListener('submit', function(e) {
                 let isValid = true;
 
                 clearFieldError(productName, 'productNameError');
@@ -1185,8 +1283,8 @@ function getStockText($quantity)
         }
 
         // ===== Remove validation on input =====
-        document.querySelectorAll('.form-control-enhanced, .form-select-enhanced').forEach(function (input) {
-            input.addEventListener('input', function () {
+        document.querySelectorAll('.form-control-enhanced, .form-select-enhanced').forEach(function(input) {
+            input.addEventListener('input', function() {
                 this.classList.remove('is-invalid');
                 const errorId = this.id ? this.id + 'Error' : null;
                 if (errorId) {
@@ -1197,7 +1295,7 @@ function getStockText($quantity)
                 }
             });
 
-            input.addEventListener('change', function () {
+            input.addEventListener('change', function() {
                 this.classList.remove('is-invalid');
                 const errorId = this.id ? this.id + 'Error' : null;
                 if (errorId) {
@@ -1208,18 +1306,18 @@ function getStockText($quantity)
                 }
             });
 
-            input.addEventListener('focus', function () {
+            input.addEventListener('focus', function() {
                 this.parentElement.style.transform = 'scale(1.01)';
             });
 
-            input.addEventListener('blur', function () {
+            input.addEventListener('blur', function() {
                 this.parentElement.style.transform = 'scale(1)';
             });
         });
 
         // ===== Auto-dismiss Flash Messages =====
-        document.querySelectorAll('.alert-enhanced').forEach(function (alert) {
-            setTimeout(function () {
+        document.querySelectorAll('.alert-enhanced').forEach(function(alert) {
+            setTimeout(function() {
                 const bsAlert = bootstrap.Alert.getOrCreateInstance(alert);
                 if (bsAlert) {
                     bsAlert.close();
@@ -1228,10 +1326,10 @@ function getStockText($quantity)
         });
 
         // ===== Animate form groups on load =====
-        document.querySelectorAll('.form-group-enhanced').forEach(function (group, index) {
+        document.querySelectorAll('.form-group-enhanced').forEach(function(group, index) {
             group.style.opacity = '0';
             group.style.transform = 'translateY(20px)';
-            setTimeout(function () {
+            setTimeout(function() {
                 group.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
                 group.style.opacity = '1';
                 group.style.transform = 'translateY(0)';

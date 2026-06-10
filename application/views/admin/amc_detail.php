@@ -10,6 +10,106 @@ $initials = strtoupper(substr((string) ($amc->customer_name ?? 'NA'), 0, 2));
 ?>
 
 <style>
+    /* ══════════════════════════════════════
+   DARK THEME — AMC Detail Page
+══════════════════════════════════════ */
+
+    [data-theme="dark"] .amcd-hero,
+    [data-theme="dark"] .amcd-card {
+        background: var(--bg-secondary) !important;
+        border-color: var(--border-color) !important;
+        box-shadow: none !important;
+    }
+
+    /* Hero */
+    [data-theme="dark"] .amcd-icon {
+        background: rgba(99, 102, 241, 0.15) !important;
+        color: var(--primary) !important;
+    }
+
+    [data-theme="dark"] .amcd-title h1 {
+        color: var(--text-primary) !important;
+    }
+
+    [data-theme="dark"] .amcd-title p {
+        color: var(--text-secondary) !important;
+    }
+
+    /* Buttons */
+    [data-theme="dark"] .amcd-btn.back {
+        background: var(--bg-tertiary) !important;
+        border-color: var(--border-color) !important;
+        color: var(--text-secondary) !important;
+    }
+
+    [data-theme="dark"] .amcd-btn.edit {
+        background: rgba(99, 102, 241, 0.12) !important;
+        border-color: rgba(99, 102, 241, 0.25) !important;
+        color: #818cf8 !important;
+    }
+
+    [data-theme="dark"] .amcd-btn.delete {
+        background: rgba(220, 38, 38, 0.1) !important;
+        border-color: rgba(220, 38, 38, 0.2) !important;
+        color: #fca5a5 !important;
+    }
+
+    /* Profile */
+    [data-theme="dark"] .amcd-profile h3 {
+        color: var(--text-primary) !important;
+    }
+
+    [data-theme="dark"] .amcd-profile p {
+        color: var(--text-secondary) !important;
+    }
+
+    /* Info items */
+    [data-theme="dark"] .amcd-item {
+        background: var(--bg-tertiary) !important;
+        border-color: var(--border-color) !important;
+    }
+
+    [data-theme="dark"] .amcd-label {
+        color: var(--text-tertiary) !important;
+    }
+
+    [data-theme="dark"] .amcd-value {
+        color: var(--text-primary) !important;
+    }
+
+    /* Section title */
+    [data-theme="dark"] .amcd-section-title {
+        color: var(--text-primary) !important;
+    }
+
+    /* Highlight cards */
+    [data-theme="dark"] .amcd-highlight {
+        background: var(--bg-tertiary) !important;
+        border-color: var(--border-color) !important;
+    }
+
+    [data-theme="dark"] .amcd-highlight strong {
+        color: var(--text-primary) !important;
+    }
+
+    /* Note */
+    [data-theme="dark"] .amcd-note {
+        background: rgba(245, 158, 11, 0.08) !important;
+        border-color: rgba(245, 158, 11, 0.2) !important;
+        color: #fcd34d !important;
+    }
+
+    /* Badges */
+    [data-theme="dark"] .amcd-badge.active {
+        background: rgba(5, 150, 105, 0.15) !important;
+        color: #34d399 !important;
+    }
+
+    [data-theme="dark"] .amcd-badge.expired {
+        background: rgba(220, 38, 38, 0.12) !important;
+        color: #fca5a5 !important;
+    }
+
     .amcd-shell {
         max-width: 1120px;
         margin: 28px auto;
@@ -85,9 +185,22 @@ $initials = strtoupper(substr((string) ($amc->customer_name ?? 'NA'), 0, 2));
         border: 1px solid #dbe5f1;
     }
 
-    .amcd-btn.back { color: #475569; background: #fff; }
-    .amcd-btn.edit { color: #4f46e5; background: #eef2ff; border-color: #c7d2fe; }
-    .amcd-btn.delete { color: #dc2626; background: #fff1f2; border-color: #fecdd3; }
+    .amcd-btn.back {
+        color: #475569;
+        background: #fff;
+    }
+
+    .amcd-btn.edit {
+        color: #4f46e5;
+        background: #eef2ff;
+        border-color: #c7d2fe;
+    }
+
+    .amcd-btn.delete {
+        color: #dc2626;
+        background: #fff1f2;
+        border-color: #fecdd3;
+    }
 
     .amcd-grid {
         display: grid;
@@ -136,8 +249,15 @@ $initials = strtoupper(substr((string) ($amc->customer_name ?? 'NA'), 0, 2));
         font-weight: 800;
     }
 
-    .amcd-badge.active { background: #ecfdf3; color: #059669; }
-    .amcd-badge.expired { background: #fff1f2; color: #dc2626; }
+    .amcd-badge.active {
+        background: #ecfdf3;
+        color: #059669;
+    }
+
+    .amcd-badge.expired {
+        background: #fff1f2;
+        color: #dc2626;
+    }
 
     .amcd-list {
         margin: 22px 0 0;
@@ -212,6 +332,7 @@ $initials = strtoupper(substr((string) ($amc->customer_name ?? 'NA'), 0, 2));
     }
 
     @media (max-width: 920px) {
+
         .amcd-grid,
         .amcd-info-grid {
             grid-template-columns: 1fr;

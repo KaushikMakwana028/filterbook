@@ -17,6 +17,10 @@ user_guide_src/cilexer/dist/*
 user_guide_src/cilexer/pycilexer.egg-info/*
 /vendor/
 
+# Razorpay Config
+application/config/razorpay.php
+
+
 # IDE Files
 #-------------------------
 /nbproject/

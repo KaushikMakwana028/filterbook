@@ -866,7 +866,6 @@
 
             @media (max-width: 768px) {
 
-                /* ── Page wrapper ── */
                 .cl-page-content {
                     padding: 0.875rem 0.75rem;
                 }
@@ -890,12 +889,10 @@
                     justify-content: center;
                 }
 
-                /* ── Stats ── */
                 .cl-stats-grid {
                     grid-template-columns: repeat(2, 1fr);
                 }
 
-                /* ── Toolbar ── */
                 .cl-toolbar {
                     flex-direction: column;
                     align-items: stretch;
@@ -915,29 +912,7 @@
                     justify-content: flex-end;
                 }
 
-                /* ── Bulk bar ── */
-                .cl-bulk-bar {
-                    flex-direction: column;
-                    gap: 0.75rem;
-                    text-align: center;
-                }
-
-                .cl-bulk-bar-right {
-                    justify-content: center;
-                    width: 100%;
-                }
-
-                .cl-bulk-btn {
-                    flex: 1;
-                    justify-content: center;
-                }
-
-                /* ══════════════════════════════════════════
-       TABLE → CARD LAYOUT ON MOBILE
-       Hide the thead and convert each tbody row
-       into a self-contained card
-    ══════════════════════════════════════════ */
-
+                /* ── TABLE → CARD LAYOUT ── */
                 .cl-table-card {
                     background: transparent;
                     border: none;
@@ -949,18 +924,17 @@
                     overflow: visible;
                 }
 
-                /* Hide the table header on mobile */
                 .cl-table thead {
                     display: none;
                 }
 
-                /* Make each row a card */
                 .cl-table,
                 .cl-table tbody {
                     display: block;
                     width: 100%;
                 }
 
+                /* Each row becomes a card */
                 .cl-table tbody tr.cl-data-row {
                     display: block;
                     background: #ffffff;
@@ -969,59 +943,49 @@
                     padding: 0.875rem 1rem;
                     margin-bottom: 0.625rem;
                     position: relative;
-                    transition: box-shadow 0.2s ease;
                 }
 
-                .cl-table tbody tr.cl-data-row:hover {
-                    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-                    background: #FAFAFF;
-                }
-
-                /* Hide all cells by default, show selectively */
+                /* Hide ALL td by default */
                 .cl-table tbody tr.cl-data-row td {
                     display: none;
                     padding: 0;
                     border: none;
                     font-size: 0.875rem;
-                    vertical-align: middle;
                 }
 
-                /* ── Checkbox — top-left corner ── */
+                /* 
+        No checkbox column now — columns are:
+        td:nth-child(1) = Customer
+        td:nth-child(2) = Mobile
+        td:nth-child(3) = Address
+        td:nth-child(4) = Orders
+        td:nth-child(5) = Actions
+    */
+
+                /* ── Customer cell — full width ── */
                 .cl-table tbody tr.cl-data-row td:nth-child(1) {
                     display: block;
-                    position: absolute;
-                    top: 0.875rem;
-                    left: 0.875rem;
-                    width: auto;
-                }
-
-                /* ── Customer — main info ── */
-                .cl-table tbody tr.cl-data-row td:nth-child(2) {
-                    display: block;
-                    padding-left: 1.75rem;
-                    /* offset for checkbox */
-                    padding-bottom: 0.625rem;
+                    padding-bottom: 0.75rem;
                     border-bottom: 1px solid #F3F4F6;
                     margin-bottom: 0.625rem;
                 }
 
-                .cl-table tbody tr.cl-data-row td:nth-child(2) .cl-customer-name {
+                .cl-table tbody tr.cl-data-row td:nth-child(1) .cl-customer-name {
                     max-width: 100%;
                     font-size: 0.9375rem;
                 }
 
-                /* ── Mobile, Address, Orders — label+value rows ── */
+                /* ── Mobile, Address, Orders — label rows ── */
+                .cl-table tbody tr.cl-data-row td:nth-child(2),
                 .cl-table tbody tr.cl-data-row td:nth-child(3),
-                .cl-table tbody tr.cl-data-row td:nth-child(4),
-                .cl-table tbody tr.cl-data-row td:nth-child(5) {
+                .cl-table tbody tr.cl-data-row td:nth-child(4) {
                     display: flex;
                     align-items: flex-start;
                     gap: 0.5rem;
                     padding: 0.2rem 0;
                 }
 
-                /* Inject labels via ::before */
-                .cl-table tbody tr.cl-data-row td:nth-child(3)::before {
+                .cl-table tbody tr.cl-data-row td:nth-child(2)::before {
                     content: "Mobile:";
                     font-size: 0.72rem;
                     font-weight: 600;
@@ -1029,11 +993,11 @@
                     text-transform: uppercase;
                     letter-spacing: 0.04em;
                     white-space: nowrap;
-                    min-width: 56px;
+                    min-width: 60px;
                     margin-top: 2px;
                 }
 
-                .cl-table tbody tr.cl-data-row td:nth-child(4)::before {
+                .cl-table tbody tr.cl-data-row td:nth-child(3)::before {
                     content: "Address:";
                     font-size: 0.72rem;
                     font-weight: 600;
@@ -1041,11 +1005,11 @@
                     text-transform: uppercase;
                     letter-spacing: 0.04em;
                     white-space: nowrap;
-                    min-width: 56px;
+                    min-width: 60px;
                     margin-top: 2px;
                 }
 
-                .cl-table tbody tr.cl-data-row td:nth-child(5)::before {
+                .cl-table tbody tr.cl-data-row td:nth-child(4)::before {
                     content: "Orders:";
                     font-size: 0.72rem;
                     font-weight: 600;
@@ -1053,7 +1017,7 @@
                     text-transform: uppercase;
                     letter-spacing: 0.04em;
                     white-space: nowrap;
-                    min-width: 56px;
+                    min-width: 60px;
                     margin-top: 2px;
                 }
 
@@ -1064,17 +1028,12 @@
                 }
 
                 /* ── Actions — bottom right ── */
-                .cl-table tbody tr.cl-data-row td:nth-child(6) {
+                .cl-table tbody tr.cl-data-row td:nth-child(5) {
                     display: flex;
                     justify-content: flex-end;
                     padding-top: 0.625rem;
                     margin-top: 0.5rem;
                     border-top: 1px solid #F3F4F6;
-                }
-
-                .cl-action-btn {
-                    width: 2rem;
-                    height: 2rem;
                 }
 
                 /* ── Empty state row ── */
@@ -1121,6 +1080,221 @@
                     height: 1.75rem;
                     font-size: 0.75rem;
                 }
+            }
+
+            /* ── Page background warmth ── */
+            .cl-page-content {
+                background: linear-gradient(135deg, #f0f4ff 0%, #f9fafb 60%, #f5f3ff 100%);
+                min-height: 100vh;
+                border-radius: 16px;
+            }
+
+            /* ── Header polish ── */
+            .cl-page-header-left h1 {
+                background: linear-gradient(135deg, #4F46E5, #7C3AED);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+            }
+
+            /* ── Table card depth ── */
+            .cl-table-card {
+                box-shadow: 0 4px 24px rgba(79, 70, 229, 0.08), 0 1px 4px rgba(0, 0, 0, 0.04);
+                border-color: #e0e7ff !important;
+            }
+
+            /* ── Table header stronger ── */
+            .cl-table thead {
+                background: linear-gradient(90deg, #eef2ff 0%, #f5f3ff 100%) !important;
+                border-bottom: 2px solid #e0e7ff !important;
+            }
+
+            .cl-table thead th {
+                color: #4F46E5 !important;
+                font-size: 0.7rem !important;
+                letter-spacing: 0.08em !important;
+            }
+
+            /* ── Row hover glow ── */
+            .cl-table tbody tr:hover {
+                background: linear-gradient(90deg, #eef2ff 0%, #faf5ff 100%) !important;
+            }
+
+            /* ── Avatar upgrade ── */
+            .cl-avatar {
+                border-radius: 10px !important;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+                font-size: 0.875rem !important;
+            }
+
+            /* ── Customer name stronger ── */
+            .cl-customer-name {
+                font-size: 0.9375rem !important;
+            }
+
+            .cl-customer-id {
+                font-size: 0.7rem !important;
+                letter-spacing: 0.04em;
+                color: #a5b4fc !important;
+            }
+
+            /* ── Mobile field ── */
+            .cl-mobile {
+                font-weight: 600 !important;
+                color: #374151 !important;
+                font-size: 0.875rem;
+            }
+
+            .cl-mobile i {
+                color: #6366f1 !important;
+            }
+
+            /* ── Address ── */
+            .cl-address-text {
+                color: #6B7280 !important;
+                font-size: 0.8125rem !important;
+            }
+
+            /* ── Badge upgrades ── */
+            .cl-badge {
+                font-weight: 600 !important;
+                padding: 0.3rem 0.75rem !important;
+                letter-spacing: 0.01em;
+                box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+            }
+
+            .cl-badge-info {
+                background: linear-gradient(135deg, #ede9fe, #eef2ff) !important;
+                color: #4F46E5 !important;
+                border: 1px solid #c7d2fe;
+            }
+
+            .cl-badge-success {
+                background: linear-gradient(135deg, #d1fae5, #ecfdf5) !important;
+                border: 1px solid #a7f3d0;
+            }
+
+            .cl-badge-warning {
+                background: linear-gradient(135deg, #fef3c7, #fffbeb) !important;
+                border: 1px solid #fde68a;
+            }
+
+            /* ── Action buttons ── */
+            .cl-action-btn {
+                border-radius: 8px !important;
+                border: 1px solid transparent;
+                transition: all 0.18s ease !important;
+            }
+
+            .cl-action-btn.view:hover {
+                background: #eff6ff !important;
+                border-color: #bfdbfe !important;
+                transform: translateY(-1px);
+                box-shadow: 0 2px 8px rgba(37, 99, 235, 0.12);
+            }
+
+            .cl-action-btn.edit:hover {
+                background: #eef2ff !important;
+                border-color: #c7d2fe !important;
+                transform: translateY(-1px);
+                box-shadow: 0 2px 8px rgba(79, 70, 229, 0.12);
+            }
+
+            .cl-action-btn.delete:hover {
+                background: #fef2f2 !important;
+                border-color: #fecaca !important;
+                transform: translateY(-1px);
+                box-shadow: 0 2px 8px rgba(220, 38, 38, 0.1);
+            }
+
+            /* ── Records pill ── */
+            .cl-btn-secondary[style*="cursor:default"] {
+                background: linear-gradient(135deg, #eef2ff, #f5f3ff) !important;
+                border-color: #c7d2fe !important;
+                color: #4F46E5 !important;
+                font-size: 0.8125rem;
+                box-shadow: 0 1px 4px rgba(79, 70, 229, 0.1);
+            }
+
+            /* ── Table footer ── */
+            .cl-table-footer {
+                background: linear-gradient(90deg, #f8faff, #faf5ff) !important;
+                border-top: 1px solid #e0e7ff !important;
+            }
+
+            .cl-table-info {
+                color: #6b7280 !important;
+            }
+
+            .cl-table-info strong {
+                color: #4F46E5 !important;
+            }
+
+            /* ══ DARK THEME OVERRIDES ══ */
+            [data-theme="dark"] .cl-page-content {
+                background: transparent !important;
+            }
+
+            [data-theme="dark"] .cl-page-header-left h1 {
+                background: linear-gradient(135deg, #818cf8, #a78bfa) !important;
+                -webkit-background-clip: text !important;
+                -webkit-text-fill-color: transparent !important;
+                background-clip: text !important;
+            }
+
+            [data-theme="dark"] .cl-table-card {
+                box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3) !important;
+                border-color: rgba(99, 102, 241, 0.2) !important;
+            }
+
+            [data-theme="dark"] .cl-table thead {
+                background: linear-gradient(90deg, rgba(79, 70, 229, 0.15), rgba(124, 58, 237, 0.1)) !important;
+                border-bottom: 2px solid rgba(99, 102, 241, 0.25) !important;
+            }
+
+            [data-theme="dark"] .cl-table thead th {
+                color: #818cf8 !important;
+            }
+
+            [data-theme="dark"] .cl-table tbody tr:hover {
+                background: rgba(99, 102, 241, 0.08) !important;
+            }
+
+            [data-theme="dark"] .cl-customer-id {
+                color: #6366f1 !important;
+            }
+
+            [data-theme="dark"] .cl-mobile i {
+                color: #818cf8 !important;
+            }
+
+            [data-theme="dark"] .cl-badge-info {
+                background: rgba(99, 102, 241, 0.15) !important;
+                border-color: rgba(99, 102, 241, 0.3) !important;
+                color: #a5b4fc !important;
+            }
+
+            [data-theme="dark"] .cl-badge-success {
+                border-color: rgba(16, 185, 129, 0.3) !important;
+            }
+
+            [data-theme="dark"] .cl-badge-warning {
+                border-color: rgba(245, 158, 11, 0.3) !important;
+            }
+
+            [data-theme="dark"] .cl-table-footer {
+                background: linear-gradient(90deg, rgba(79, 70, 229, 0.05), rgba(124, 58, 237, 0.05)) !important;
+                border-top-color: rgba(99, 102, 241, 0.2) !important;
+            }
+
+            [data-theme="dark"] .cl-table-info strong {
+                color: #818cf8 !important;
+            }
+
+            [data-theme="dark"] .cl-btn-secondary[style*="cursor:default"] {
+                background: rgba(99, 102, 241, 0.15) !important;
+                border-color: rgba(99, 102, 241, 0.3) !important;
+                color: #a5b4fc !important;
             }
         </style>
 
@@ -1239,11 +1413,6 @@
                         <table class="cl-table">
                             <thead>
                                 <tr>
-                                    <th style="width: 40px;">
-                                        <div class="cl-checkbox-wrapper">
-                                            <input type="checkbox" id="clSelectAll" onchange="clToggleSelectAll(this)">
-                                        </div>
-                                    </th>
                                     <th class="sorted">
                                         Customer <i class="fas fa-arrow-up sort-icon"></i>
                                     </th>
@@ -1275,11 +1444,6 @@
                                         }
                                     ?>
                                         <tr class="cl-data-row">
-                                            <td>
-                                                <div class="cl-checkbox-wrapper">
-                                                    <input type="checkbox" class="cl-row-checkbox" onchange="clUpdateBulkBar()">
-                                                </div>
-                                            </td>
                                             <td>
                                                 <div class="cl-customer-cell">
                                                     <div class="cl-avatar <?= $colorClass ?>"><?= htmlspecialchars($initials) ?>

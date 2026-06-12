@@ -55,6 +55,7 @@ class Service extends CI_Controller
 
     public function save()
     {
+        $customer_id = (int) $this->input->post('customer_id', true);
         $customer_name = trim((string) $this->input->post('customer_name', true));
         $mobile = preg_replace('/\D+/', '', (string) $this->input->post('mobile', true));
         $address = trim((string) $this->input->post('address', true));
@@ -74,16 +75,28 @@ class Service extends CI_Controller
             show_404();
         }
 
-        $customer = $this->db
-            ->where('mobile', $mobile)
-            ->where('store_id', $this->store_id)
-            ->get('customers')
-            ->row();
+        $customer = null;
+        if ($customer_id > 0) {
+            $customer = $this->db
+                ->where('id', $customer_id)
+                ->where('store_id', $this->store_id)
+                ->get('customers')
+                ->row();
+        }
+
+        if (!$customer) {
+            $customer = $this->db
+                ->where('mobile', $mobile)
+                ->where('store_id', $this->store_id)
+                ->get('customers')
+                ->row();
+        }
 
         if ($customer) {
             $customer_id = (int) $customer->id;
             $this->db->where('id', $customer_id)->update('customers', [
                 'name' => $customer_name,
+                'mobile' => $mobile,
                 'address' => $address
             ]);
         } else {
@@ -131,5 +144,19 @@ class Service extends CI_Controller
         }
 
         redirect(site_url('admin/service'));
+    }
+
+    public function search_customers()
+    {
+        $query = trim((string) $this->input->get('q', true));
+        header('Content-Type: application/json');
+
+        if ($query === '') {
+            echo json_encode([]);
+            return;
+        }
+
+        $customers = $this->Customer_model->search_customers($query, $this->store_id);
+        echo json_encode($customers);
     }
 }

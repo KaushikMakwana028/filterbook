@@ -1223,7 +1223,7 @@
             }
             ?>
 
-            <div class="profile-wrapper">
+            <form method="post" action="<?= site_url('admin/profile/update') ?>" enctype="multipart/form-data" id="profileForm" class="profile-wrapper">
 
                 <!-- ===== LEFT: PROFILE CARD ===== -->
                 <div class="profile-card">
@@ -1359,8 +1359,7 @@
                         </div>
                     <?php endif; ?>
 
-                    <form method="post" action="<?= site_url('admin/profile/update') ?>" enctype="multipart/form-data"
-                        id="profileForm">
+
 
                         <div class="form-body">
                             <div class="form-grid">
@@ -1476,11 +1475,9 @@
                             </button>
                         </div>
 
-                    </form>
-
                 </div>
 
-            </div>
+            </form>
         </div>
     </div>
 </div>

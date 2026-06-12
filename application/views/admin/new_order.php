@@ -210,12 +210,12 @@
     /* ===== Page Header ===== */
     .ord-page-header {
         background: linear-gradient(135deg, var(--ord-primary) 0%, #560bad 100%);
-        border-radius: 20px;
-        padding: 36px 40px;
-        margin-bottom: 32px;
+        border-radius: 16px;
+        padding: 24px 32px;
+        margin-bottom: 24px;
         position: relative;
         overflow: hidden;
-        box-shadow: 0 12px 48px rgba(67, 97, 238, 0.25);
+        box-shadow: 0 8px 32px rgba(67, 97, 238, 0.22);
     }
 
     .ord-page-header .deco-circle {
@@ -316,21 +316,22 @@
     }
 
     .ord-back-btn {
-        padding: 11px 24px;
-        border-radius: 12px;
-        background: rgba(255, 255, 255, 0.12);
+        padding: 8px 18px;
+        border-radius: 10px;
+        background: rgba(255, 255, 255, 0.15);
         color: #fff;
-        border: 1.5px solid rgba(255, 255, 255, 0.2);
-        font-size: 13px;
+        border: 1.5px solid rgba(255, 255, 255, 0.25);
+        font-size: 12px;
         font-weight: 600;
         text-decoration: none;
         display: inline-flex;
         align-items: center;
-        gap: 8px;
+        gap: 7px;
         transition: var(--ord-transition);
         backdrop-filter: blur(12px);
         position: relative;
         z-index: 2;
+        margin-bottom: 12px;
     }
 
     .ord-back-btn:hover {
@@ -1139,6 +1140,68 @@
             padding: 18px 20px;
         }
     }
+
+    /* Suggestion Dropdown CSS */
+    .customer-suggestions-list {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        max-height: 250px;
+        overflow-y: auto;
+        background: var(--bg-primary, #ffffff);
+        border: 1px solid var(--border-color, #e2e8f0);
+        border-radius: 12px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+        z-index: 1000;
+        margin-top: 4px;
+        padding: 6px 0;
+        display: none;
+    }
+
+    [data-theme="dark"] .customer-suggestions-list {
+        background: var(--bg-secondary, #1e293b);
+        border-color: var(--border-color, #334155);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    }
+
+    .customer-suggestion-item {
+        padding: 10px 16px;
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        transition: background-color 0.2s ease;
+    }
+
+    .customer-suggestion-item:hover {
+        background-color: var(--bg-tertiary, #f1f5f9);
+    }
+
+    [data-theme="dark"] .customer-suggestion-item:hover {
+        background-color: var(--bg-tertiary, #334155);
+    }
+
+    .customer-suggestion-name {
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--text-primary, #0f172a);
+    }
+
+    [data-theme="dark"] .customer-suggestion-name {
+        color: var(--text-primary, #f8fafc);
+    }
+
+    .customer-suggestion-details {
+        font-size: 12px;
+        color: var(--text-secondary, #64748b);
+        display: flex;
+        gap: 12px;
+    }
+
+    [data-theme="dark"] .customer-suggestion-details {
+        color: var(--text-secondary, #94a3b8);
+    }
 </style>
 
 <div class="page-wrapper">
@@ -1148,31 +1211,12 @@
             <div class="deco-circle c1"></div>
             <div class="deco-circle c2"></div>
             <div class="deco-circle c3"></div>
-            <div class="d-flex align-items-center justify-content-between flex-wrap gap-3 header-content">
-                <div>
-                    <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb mb-2 p-0">
-                            <li class="breadcrumb-item">
-                                <a href="<?= base_url('dashboard'); ?>">
-                                    <i class="bx bx-home-alt"></i> Dashboard
-                                </a>
-                            </li>
-                            <li class="breadcrumb-item">
-                                <a href="<?= base_url('orders'); ?>">Orders</a>
-                            </li>
-                            <li class="breadcrumb-item active" aria-current="page">New Order</li>
-                        </ol>
-                    </nav>
-                    <h1 class="page-title">Create New Order</h1>
-                    <p class="page-desc">
-                        <i class="bx bx-cart-add me-1"></i>
-                        Fill in customer and product details to create a new order
-                    </p>
-                </div>
-                <a href="<?= base_url('admin/orders'); ?>" class="ord-back-btn">
+            <div class="header-content">
+                <a href="<?= base_url('admin/orders'); ?>" class="ord-back-btn mb-3">
                     <i class="bx bx-arrow-back"></i>
                     Back to Orders
                 </a>
+                <h1 class="page-title mb-0">Create New Order</h1>
             </div>
         </div>
         <!-- Flash Messages -->
@@ -1383,7 +1427,7 @@
                                     <span class="required-dot"></span>
                                 </label>
                                 <div class="input-wrap">
-                                    <i class="bx bx-dollar field-icon"></i>
+                                    <i class="bx bx-rupee field-icon"></i>
                                     <input type="number" class="form-control" name="price" id="inputProductTags" min="0"
                                         placeholder="0.00" required>
                                 </div>
@@ -1975,10 +2019,91 @@
                 }
 
                 /* ===============================
-                CUSTOMER MOBILE AUTO FETCH
+                CUSTOMER AUTO SUGGESTIONS & AUTO FILL
                 ================================*/
-                $('#ordcustomerMobile').on('input', function() {
+                var nameInput = $('#cust_Name');
+                var mobileInput = $('#ordcustomerMobile');
+                var addressInput = $('#ordcustomerAddress');
+
+                var nameSuggestions = $('<div class="customer-suggestions-list"></div>');
+                var mobileSuggestions = $('<div class="customer-suggestions-list"></div>');
+
+                nameInput.after(nameSuggestions);
+                mobileInput.after(mobileSuggestions);
+
+                var searchUrl = "<?= site_url('admin/orders/search_customers') ?>";
+                var timer = null;
+
+                function handleSearch(input, dropdown) {
+                    var query = input.val().trim();
+                    if (query.length < 2) {
+                        dropdown.hide().empty();
+                        return;
+                    }
+
+                    clearTimeout(timer);
+                    timer = setTimeout(function() {
+                        $.ajax({
+                            url: searchUrl,
+                            type: 'GET',
+                            data: {
+                                q: query
+                            },
+                            dataType: 'json',
+                            success: function(data) {
+                                dropdown.empty();
+                                if (data.length > 0) {
+                                    data.forEach(function(cust) {
+                                        var item = $('<div class="customer-suggestion-item"></div>');
+                                        item.append('<div class="customer-suggestion-name">' + cust.name + '</div>');
+                                        item.append('<div class="customer-suggestion-details"><span><i class="bx bx-phone"></i> ' + cust.mobile + '</span><span><i class="bx bx-map"></i> ' + (cust.address || 'N/A') + '</span></div>');
+
+                                        item.on('click', function(e) {
+                                            e.preventDefault();
+                                            e.stopPropagation();
+
+                                            $('#customer_id').val(cust.id);
+                                            nameInput.val(cust.name);
+                                            mobileInput.val(cust.mobile);
+                                            addressInput.val(cust.address || '');
+
+                                            $('#sumCustomer').text(cust.name).removeClass('empty');
+                                            $('#sumMobile').text(cust.mobile).removeClass('empty');
+
+                                            // Trigger validations and lookups
+                                            nameInput.trigger('change');
+                                            mobileInput.trigger('change');
+                                            addressInput.trigger('change');
+
+                                            $('.customer-suggestions-list').hide().empty();
+                                            triggerOrderLookup();
+                                        });
+                                        dropdown.append(item);
+                                    });
+                                    dropdown.show();
+                                } else {
+                                    dropdown.hide();
+                                }
+                            }
+                        });
+                    }, 250);
+                }
+
+                nameInput.on('input', function() {
+                    $('#customer_id').val('');
+                    handleSearch(nameInput, nameSuggestions);
+                });
+
+                mobileInput.on('input', function() {
+                    $('#customer_id').val('');
+                    handleSearch(mobileInput, mobileSuggestions);
                     triggerOrderLookup();
+                });
+
+                $(document).on('click', function(e) {
+                    if (!$(e.target).closest('.ord-field').length) {
+                        $('.customer-suggestions-list').hide();
+                    }
                 });
 
                 /* ===============================

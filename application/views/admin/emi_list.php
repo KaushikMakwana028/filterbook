@@ -3,6 +3,181 @@
         <style>
             @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
+            /* ══════════════════════════════════════
+   Color Fix — Match site primary
+══════════════════════════════════════ */
+            .em-toolbar-title i,
+            .em-toolbar-count,
+            .em-filter-tab.active,
+            .em-pagination-info,
+            .em-act-btn {
+                color: var(--primary, #6366f1) !important;
+            }
+
+            .em-toolbar-count {
+                background: rgba(99, 102, 241, 0.1) !important;
+                color: var(--primary, #6366f1) !important;
+            }
+
+            .em-filter-tab.active {
+                color: var(--primary, #6366f1) !important;
+            }
+
+            .em-per-page select:focus,
+            .em-search input:focus {
+                border-color: var(--primary-light, #818cf8) !important;
+                box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.08) !important;
+            }
+
+            .em-product-ico {
+                background: rgba(99, 102, 241, 0.1) !important;
+                color: var(--primary, #6366f1) !important;
+            }
+
+            .em-act-btn {
+                background: rgba(99, 102, 241, 0.1) !important;
+                color: var(--primary, #6366f1) !important;
+            }
+
+            .em-act-btn:hover {
+                background: rgba(99, 102, 241, 0.18) !important;
+                color: var(--primary-dark, #4f46e5) !important;
+            }
+
+            .em-page-btn.active {
+                background: var(--primary, #6366f1) !important;
+                border-color: var(--primary, #6366f1) !important;
+            }
+
+            .em-page-btn:hover:not(.active):not(.disabled) {
+                color: var(--primary, #6366f1) !important;
+            }
+
+            /* ══════════════════════════════════════
+   DARK THEME — EMI Page
+══════════════════════════════════════ */
+            [data-theme="dark"] .em-card {
+                background: var(--bg-secondary) !important;
+                border-color: var(--border-color) !important;
+            }
+
+            [data-theme="dark"] .em-toolbar {
+                border-color: var(--border-color) !important;
+            }
+
+            [data-theme="dark"] .em-toolbar-title {
+                color: var(--text-primary) !important;
+            }
+
+            [data-theme="dark"] .em-per-page {
+                color: var(--text-secondary) !important;
+            }
+
+            [data-theme="dark"] .em-per-page select,
+            [data-theme="dark"] .em-search input {
+                background: var(--bg-tertiary) !important;
+                border-color: var(--border-color) !important;
+                color: var(--text-primary) !important;
+            }
+
+            [data-theme="dark"] .em-search input::placeholder {
+                color: var(--text-tertiary) !important;
+            }
+
+            [data-theme="dark"] .em-search .search-icon {
+                color: var(--text-tertiary) !important;
+            }
+
+            [data-theme="dark"] .em-filter-tabs {
+                background: var(--bg-tertiary) !important;
+                border-color: var(--border-color) !important;
+            }
+
+            [data-theme="dark"] .em-filter-tab {
+                color: var(--text-tertiary) !important;
+            }
+
+            [data-theme="dark"] .em-filter-tab.active {
+                background: var(--bg-secondary) !important;
+                color: var(--primary) !important;
+            }
+
+            [data-theme="dark"] .em-table th {
+                background: var(--bg-tertiary) !important;
+                color: var(--text-secondary) !important;
+                border-color: var(--border-color) !important;
+            }
+
+            [data-theme="dark"] .em-table td {
+                color: var(--text-secondary) !important;
+                border-color: var(--border-color) !important;
+            }
+
+            [data-theme="dark"] .em-table tbody tr:hover {
+                background: var(--bg-tertiary) !important;
+            }
+
+            [data-theme="dark"] .em-row-num {
+                background: var(--bg-tertiary) !important;
+                color: var(--text-secondary) !important;
+            }
+
+            [data-theme="dark"] .em-customer-name {
+                color: var(--text-primary) !important;
+            }
+
+            [data-theme="dark"] .em-customer-mobile {
+                color: var(--text-tertiary) !important;
+            }
+
+            [data-theme="dark"] .em-product-name {
+                color: var(--text-secondary) !important;
+            }
+
+            [data-theme="dark"] .em-emi-num {
+                background: var(--bg-tertiary) !important;
+                color: var(--text-secondary) !important;
+            }
+
+            [data-theme="dark"] .em-amount {
+                color: var(--text-primary) !important;
+            }
+
+            [data-theme="dark"] .em-currency {
+                color: var(--text-tertiary) !important;
+            }
+
+            [data-theme="dark"] .em-date {
+                color: var(--text-secondary) !important;
+            }
+
+            [data-theme="dark"] .em-date i {
+                color: var(--text-tertiary) !important;
+            }
+
+            [data-theme="dark"] .em-pagination-wrap {
+                border-color: var(--border-color) !important;
+            }
+
+            [data-theme="dark"] .em-pagination-info strong {
+                color: var(--text-primary) !important;
+            }
+
+            [data-theme="dark"] .em-page-btn {
+                background: var(--bg-secondary) !important;
+                border-color: var(--border-color) !important;
+                color: var(--text-secondary) !important;
+            }
+
+            [data-theme="dark"] .em-empty h4 {
+                color: var(--text-secondary) !important;
+            }
+
+            [data-theme="dark"] .em-empty p,
+            [data-theme="dark"] .em-no-results {
+                color: var(--text-tertiary) !important;
+            }
+
             .em-wrap {
                 max-width: 1200px;
                 margin: 0 auto;
@@ -707,8 +882,7 @@
                             <span>Month</span>
                             <select id="emMonthFilter">
                                 <?php foreach ($monthOptions as $monthNumber => $monthLabel): ?>
-                                    <option value="<?= $monthNumber ?>" <?= $monthNumber === $currentMonth ? 'selected' : '' ?>
-                                        >
+                                    <option value="<?= $monthNumber ?>" <?= $monthNumber === $currentMonth ? 'selected' : '' ?>>
                                         <?= $monthLabel ?>
                                     </option>
                                 <?php endforeach; ?>
@@ -759,7 +933,7 @@
                                     $customerName = $e->customer_name ?? ('Customer #' . ($e->customer_id ?? ''));
                                     $initials = strtoupper(substr(trim($customerName), 0, 2));
                                     $bgColor = $avatarColors[$index % count($avatarColors)];
-                                    ?>
+                                ?>
                                     <tr class="em-data-row" data-status="<?= $status ?>" data-month="<?= $monthValue ?>">
                                         <td><span class="em-row-num"></span></td>
                                         <td>
@@ -846,7 +1020,7 @@
         </div>
 
         <script>
-            (function () {
+            (function() {
                 let currentPage = 1;
                 let currentFilter = 'all';
                 let searchQuery = '';
@@ -950,35 +1124,38 @@
                     btn.className = 'em-page-btn' + (extraClass ? ' ' + extraClass : '') + (!page ? ' disabled' : '');
                     btn.innerHTML = label;
                     if (page && extraClass !== 'active') {
-                        btn.onclick = function () {
+                        btn.onclick = function() {
                             currentPage = page;
                             render();
-                            document.querySelector('.em-card').scrollIntoView({ behavior: 'smooth', block: 'start' });
+                            document.querySelector('.em-card').scrollIntoView({
+                                behavior: 'smooth',
+                                block: 'start'
+                            });
                         };
                     }
                     paginationDiv.appendChild(btn);
                 }
 
                 // Search
-                searchInput.addEventListener('input', function () {
+                searchInput.addEventListener('input', function() {
                     searchQuery = this.value.toLowerCase().trim();
                     currentPage = 1;
                     render();
                 });
 
                 // Per page
-                perPageSelect.addEventListener('change', function () {
+                perPageSelect.addEventListener('change', function() {
                     currentPage = 1;
                     render();
                 });
 
-                monthFilterSelect.addEventListener('change', function () {
+                monthFilterSelect.addEventListener('change', function() {
                     currentPage = 1;
                     render();
                 });
 
                 // Filters
-                filterTabs.addEventListener('click', function (e) {
+                filterTabs.addEventListener('click', function(e) {
                     const tab = e.target.closest('.em-filter-tab');
                     if (!tab) return;
                     filterTabs.querySelectorAll('.em-filter-tab').forEach(t => t.classList.remove('active'));
@@ -989,13 +1166,18 @@
                 });
 
                 // Keyboard nav
-                document.addEventListener('keydown', function (e) {
+                document.addEventListener('keydown', function(e) {
                     if (document.activeElement === searchInput) return;
                     const filtered = getFilteredRows();
                     const perPage = getPerPage();
                     const totalPages = Math.max(1, Math.ceil(filtered.length / perPage));
-                    if (e.key === 'ArrowLeft' && currentPage > 1) { currentPage--; render(); }
-                    else if (e.key === 'ArrowRight' && currentPage < totalPages) { currentPage++; render(); }
+                    if (e.key === 'ArrowLeft' && currentPage > 1) {
+                        currentPage--;
+                        render();
+                    } else if (e.key === 'ArrowRight' && currentPage < totalPages) {
+                        currentPage++;
+                        render();
+                    }
                 });
 
                 render();

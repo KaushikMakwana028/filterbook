@@ -3,6 +3,179 @@
         <style>
             @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
+            /* ══════════════════════════════════════
+   Color Fix — Match site primary color
+══════════════════════════════════════ */
+            .sv-toolbar-title i,
+            .sv-toolbar-count,
+            .sv-filter-tab.active,
+            .sv-pagination-info {
+                color: var(--primary, #6366f1) !important;
+            }
+
+            .sv-toolbar-count {
+                background: rgba(99, 102, 241, 0.1) !important;
+                color: var(--primary, #6366f1) !important;
+            }
+
+            .sv-filter-tab.active {
+                color: var(--primary, #6366f1) !important;
+            }
+
+            .sv-add-btn {
+                background: var(--primary, #6366f1) !important;
+            }
+
+            .sv-add-btn:hover {
+                background: var(--primary-dark, #4f46e5) !important;
+            }
+
+            .sv-per-page select:focus,
+            .sv-search input:focus {
+                border-color: var(--primary-light, #818cf8) !important;
+                box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.08) !important;
+            }
+
+            .sv-act-btn.view {
+                background: rgba(99, 102, 241, 0.1) !important;
+                color: var(--primary, #6366f1) !important;
+            }
+
+            .sv-act-btn.view:hover {
+                background: rgba(99, 102, 241, 0.18) !important;
+            }
+
+            .sv-product-ico {
+                background: rgba(99, 102, 241, 0.1) !important;
+                color: var(--primary, #6366f1) !important;
+            }
+
+            .sv-page-btn.active {
+                background: var(--primary, #6366f1) !important;
+                border-color: var(--primary, #6366f1) !important;
+            }
+
+            .sv-page-btn:hover:not(.active):not(.disabled) {
+                color: var(--primary, #6366f1) !important;
+            }
+
+            /* ══════════════════════════════════════
+   DARK THEME — Services Page
+══════════════════════════════════════ */
+            [data-theme="dark"] .sv-card {
+                background: var(--bg-secondary) !important;
+                border-color: var(--border-color) !important;
+            }
+
+            [data-theme="dark"] .sv-toolbar {
+                border-color: var(--border-color) !important;
+            }
+
+            [data-theme="dark"] .sv-toolbar-title {
+                color: var(--text-primary) !important;
+            }
+
+            [data-theme="dark"] .sv-per-page {
+                color: var(--text-secondary) !important;
+            }
+
+            [data-theme="dark"] .sv-per-page select,
+            [data-theme="dark"] .sv-search input {
+                background: var(--bg-tertiary) !important;
+                border-color: var(--border-color) !important;
+                color: var(--text-primary) !important;
+            }
+
+            [data-theme="dark"] .sv-search input::placeholder {
+                color: var(--text-tertiary) !important;
+            }
+
+            [data-theme="dark"] .sv-search .search-icon {
+                color: var(--text-tertiary) !important;
+            }
+
+            [data-theme="dark"] .sv-filter-tabs {
+                background: var(--bg-tertiary) !important;
+                border-color: var(--border-color) !important;
+            }
+
+            [data-theme="dark"] .sv-filter-tab {
+                color: var(--text-tertiary) !important;
+            }
+
+            [data-theme="dark"] .sv-filter-tab.active {
+                background: var(--bg-secondary) !important;
+                color: var(--primary) !important;
+            }
+
+            [data-theme="dark"] .sv-table th {
+                background: var(--bg-tertiary) !important;
+                color: var(--text-secondary) !important;
+                border-color: var(--border-color) !important;
+            }
+
+            [data-theme="dark"] .sv-table td {
+                color: var(--text-secondary) !important;
+                border-color: var(--border-color) !important;
+            }
+
+            [data-theme="dark"] .sv-table tbody tr:hover {
+                background: var(--bg-tertiary) !important;
+            }
+
+            [data-theme="dark"] .sv-row-num {
+                background: var(--bg-tertiary) !important;
+                color: var(--text-secondary) !important;
+            }
+
+            [data-theme="dark"] .sv-customer-name {
+                color: var(--text-primary) !important;
+            }
+
+            [data-theme="dark"] .sv-customer-mobile {
+                color: var(--text-tertiary) !important;
+            }
+
+            [data-theme="dark"] .sv-product-name {
+                color: var(--text-secondary) !important;
+            }
+
+            [data-theme="dark"] .sv-svc-num {
+                background: var(--bg-tertiary) !important;
+                color: var(--text-secondary) !important;
+            }
+
+            [data-theme="dark"] .sv-date {
+                color: var(--text-secondary) !important;
+            }
+
+            [data-theme="dark"] .sv-date i {
+                color: var(--text-tertiary) !important;
+            }
+
+            [data-theme="dark"] .sv-pagination-wrap {
+                border-color: var(--border-color) !important;
+            }
+
+            [data-theme="dark"] .sv-pagination-info strong {
+                color: var(--text-primary) !important;
+            }
+
+            [data-theme="dark"] .sv-page-btn {
+                background: var(--bg-secondary) !important;
+                border-color: var(--border-color) !important;
+                color: var(--text-secondary) !important;
+            }
+
+            [data-theme="dark"] .sv-empty h4 {
+                color: var(--text-secondary) !important;
+            }
+
+            [data-theme="dark"] .sv-empty p,
+            [data-theme="dark"] .sv-no-results {
+                color: var(--text-tertiary) !important;
+            }
+
             .sv-wrap {
                 max-width: 1200px;
                 margin: 0 auto;
@@ -671,6 +844,333 @@
                     padding: 2px 8px;
                 }
             }
+
+            /* ── Card depth & background ── */
+            .sv-wrap {
+                padding: 0;
+            }
+
+            .sv-card {
+                background: #fff !important;
+                border-color: #e0e7ff !important;
+                box-shadow: 0 4px 24px rgba(99, 102, 241, 0.08), 0 1px 4px rgba(0, 0, 0, 0.04) !important;
+                border-radius: 16px !important;
+            }
+
+            /* ── Toolbar background ── */
+            .sv-toolbar {
+                background: linear-gradient(90deg, #f5f3ff 0%, #eef2ff 100%) !important;
+                border-bottom-color: #e0e7ff !important;
+                border-radius: 16px 16px 0 0;
+                padding: 14px 20px !important;
+            }
+
+            /* ── Title stronger ── */
+            .sv-toolbar-title {
+                font-size: 18px !important;
+                background: linear-gradient(135deg, #6366f1, #7c3aed);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+            }
+
+            .sv-toolbar-title i {
+                -webkit-text-fill-color: initial;
+                background: none;
+            }
+
+            /* ── Count pill ── */
+            .sv-toolbar-count {
+                background: linear-gradient(135deg, #ede9fe, #eef2ff) !important;
+                border: 1px solid #c7d2fe;
+                font-size: 12px !important;
+                border-radius: 8px !important;
+            }
+
+            /* ── Filter tabs ── */
+            .sv-filter-tabs {
+                background: rgba(255, 255, 255, 0.7) !important;
+                border-color: #c7d2fe !important;
+                border-radius: 10px !important;
+                backdrop-filter: blur(4px);
+            }
+
+            .sv-filter-tab.active {
+                background: linear-gradient(135deg, #6366f1, #7c3aed) !important;
+                color: #fff !important;
+                box-shadow: 0 2px 8px rgba(99, 102, 241, 0.3) !important;
+            }
+
+            /* ── Search input ── */
+            .sv-search input {
+                background: rgba(255, 255, 255, 0.9) !important;
+                border-color: #c7d2fe !important;
+                border-radius: 10px !important;
+            }
+
+            .sv-search input:focus {
+                background: #fff !important;
+                border-color: #818cf8 !important;
+                box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.12) !important;
+            }
+
+            /* ── Per-page & month selects ── */
+            .sv-per-page select {
+                background: rgba(255, 255, 255, 0.9) !important;
+                border-color: #c7d2fe !important;
+                border-radius: 10px !important;
+            }
+
+            /* ── Add button ── */
+            .sv-add-btn {
+                background: linear-gradient(135deg, #6366f1, #7c3aed) !important;
+                border-radius: 10px !important;
+                box-shadow: 0 2px 10px rgba(99, 102, 241, 0.35) !important;
+                padding: 9px 18px !important;
+            }
+
+            .sv-add-btn:hover {
+                background: linear-gradient(135deg, #4f46e5, #6d28d9) !important;
+                transform: translateY(-1px);
+                box-shadow: 0 4px 16px rgba(99, 102, 241, 0.4) !important;
+            }
+
+            /* ── Table header ── */
+            .sv-table th {
+                background: linear-gradient(90deg, #eef2ff, #f5f3ff) !important;
+                color: #6366f1 !important;
+                border-bottom: 2px solid #e0e7ff !important;
+                font-size: 10.5px !important;
+                letter-spacing: 0.08em !important;
+            }
+
+            /* ── Row hover ── */
+            .sv-table tbody tr:hover {
+                background: linear-gradient(90deg, #f5f3ff 0%, #eef2ff 100%) !important;
+            }
+
+            .sv-table td {
+                border-bottom-color: #f0f0ff !important;
+            }
+
+            /* ── Row number ── */
+            .sv-row-num {
+                background: linear-gradient(135deg, #ede9fe, #eef2ff) !important;
+                color: #6366f1 !important;
+                font-weight: 700 !important;
+                border-radius: 8px !important;
+            }
+
+            /* ── Avatar shadow ── */
+            .sv-avatar {
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+            }
+
+            /* ── Customer name ── */
+            .sv-customer-name {
+                color: #1e293b !important;
+                font-size: 13.5px !important;
+            }
+
+            .sv-customer-mobile {
+                color: #818cf8 !important;
+            }
+
+            .sv-customer-mobile i {
+                color: #a5b4fc !important;
+            }
+
+            /* ── Product icon ── */
+            .sv-product-ico {
+                background: linear-gradient(135deg, #ede9fe, #eef2ff) !important;
+                color: #6366f1 !important;
+                border-radius: 10px !important;
+                box-shadow: 0 1px 4px rgba(99, 102, 241, 0.15);
+            }
+
+            /* ── Service number ── */
+            .sv-svc-num {
+                background: linear-gradient(135deg, #eef2ff, #f5f3ff) !important;
+                color: #6366f1 !important;
+                border: 1px solid #e0e7ff;
+                border-radius: 8px !important;
+                font-weight: 700 !important;
+            }
+
+            /* ── Date ── */
+            .sv-date {
+                color: #4b5563 !important;
+                font-weight: 600 !important;
+            }
+
+            .sv-date i {
+                color: #818cf8 !important;
+            }
+
+            /* ── Badges ── */
+            .sv-badge {
+                border-radius: 8px !important;
+                font-size: 12px !important;
+                padding: 5px 12px !important;
+                box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+            }
+
+            .sv-badge.pending {
+                background: linear-gradient(135deg, #fef3c7, #fffbeb) !important;
+                color: #b45309 !important;
+                border: 1px solid #fde68a;
+            }
+
+            .sv-badge.done {
+                background: linear-gradient(135deg, #d1fae5, #ecfdf5) !important;
+                color: #065f46 !important;
+                border: 1px solid #a7f3d0;
+            }
+
+            /* ── View action button ── */
+            .sv-act-btn.view {
+                background: linear-gradient(135deg, #ede9fe, #eef2ff) !important;
+                color: #6366f1 !important;
+                border: 1px solid #c7d2fe !important;
+                border-radius: 10px !important;
+                box-shadow: 0 1px 4px rgba(99, 102, 241, 0.1);
+                transition: all 0.18s ease !important;
+            }
+
+            .sv-act-btn.view:hover {
+                background: linear-gradient(135deg, #6366f1, #7c3aed) !important;
+                color: #fff !important;
+                border-color: transparent !important;
+                transform: translateY(-1px);
+                box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3) !important;
+            }
+
+            /* ── Pagination ── */
+            .sv-pagination-wrap {
+                background: linear-gradient(90deg, #f5f3ff, #eef2ff) !important;
+                border-top-color: #e0e7ff !important;
+            }
+
+            .sv-pagination-info {
+                color: #6b7280 !important;
+                font-weight: 500 !important;
+            }
+
+            .sv-pagination-info strong {
+                color: #6366f1 !important;
+            }
+
+            .sv-page-btn {
+                border-radius: 8px !important;
+                border-color: #e0e7ff !important;
+            }
+
+            .sv-page-btn.active {
+                background: linear-gradient(135deg, #6366f1, #7c3aed) !important;
+                border-color: transparent !important;
+                box-shadow: 0 2px 8px rgba(99, 102, 241, 0.3) !important;
+            }
+
+            .sv-page-btn:hover:not(.active):not(.disabled) {
+                background: #ede9fe !important;
+                border-color: #c7d2fe !important;
+                color: #6366f1 !important;
+            }
+
+            /* ══ DARK THEME OVERRIDES ══ */
+            [data-theme="dark"] .sv-card {
+                border-color: rgba(99, 102, 241, 0.2) !important;
+                box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3) !important;
+            }
+
+            [data-theme="dark"] .sv-toolbar {
+                background: linear-gradient(90deg, rgba(99, 102, 241, 0.12), rgba(124, 58, 237, 0.08)) !important;
+                border-bottom-color: rgba(99, 102, 241, 0.2) !important;
+            }
+
+            [data-theme="dark"] .sv-filter-tabs {
+                background: rgba(255, 255, 255, 0.05) !important;
+                border-color: rgba(99, 102, 241, 0.25) !important;
+            }
+
+            [data-theme="dark"] .sv-filter-tab.active {
+                background: linear-gradient(135deg, #6366f1, #7c3aed) !important;
+                color: #fff !important;
+            }
+
+            [data-theme="dark"] .sv-table th {
+                background: linear-gradient(90deg, rgba(99, 102, 241, 0.12), rgba(124, 58, 237, 0.08)) !important;
+                color: #818cf8 !important;
+                border-bottom-color: rgba(99, 102, 241, 0.2) !important;
+            }
+
+            [data-theme="dark"] .sv-table tbody tr:hover {
+                background: rgba(99, 102, 241, 0.08) !important;
+            }
+
+            [data-theme="dark"] .sv-table td {
+                border-bottom-color: rgba(99, 102, 241, 0.08) !important;
+            }
+
+            [data-theme="dark"] .sv-row-num {
+                background: rgba(99, 102, 241, 0.15) !important;
+                color: #a5b4fc !important;
+            }
+
+            [data-theme="dark"] .sv-customer-mobile {
+                color: #6366f1 !important;
+            }
+
+            [data-theme="dark"] .sv-svc-num {
+                background: rgba(99, 102, 241, 0.15) !important;
+                border-color: rgba(99, 102, 241, 0.25) !important;
+                color: #a5b4fc !important;
+            }
+
+            [data-theme="dark"] .sv-date i {
+                color: #6366f1 !important;
+            }
+
+            [data-theme="dark"] .sv-badge.pending {
+                background: rgba(245, 158, 11, 0.15) !important;
+                border-color: rgba(245, 158, 11, 0.3) !important;
+                color: #fcd34d !important;
+            }
+
+            [data-theme="dark"] .sv-badge.done {
+                background: rgba(16, 185, 129, 0.15) !important;
+                border-color: rgba(16, 185, 129, 0.3) !important;
+                color: #6ee7b7 !important;
+            }
+
+            [data-theme="dark"] .sv-act-btn.view {
+                background: rgba(99, 102, 241, 0.15) !important;
+                border-color: rgba(99, 102, 241, 0.3) !important;
+                color: #a5b4fc !important;
+            }
+
+            [data-theme="dark"] .sv-act-btn.view:hover {
+                background: linear-gradient(135deg, #6366f1, #7c3aed) !important;
+                color: #fff !important;
+            }
+
+            [data-theme="dark"] .sv-pagination-wrap {
+                background: linear-gradient(90deg, rgba(99, 102, 241, 0.08), rgba(124, 58, 237, 0.05)) !important;
+                border-top-color: rgba(99, 102, 241, 0.2) !important;
+            }
+
+            [data-theme="dark"] .sv-pagination-info strong {
+                color: #818cf8 !important;
+            }
+
+            [data-theme="dark"] .sv-page-btn {
+                border-color: rgba(99, 102, 241, 0.2) !important;
+            }
+
+            [data-theme="dark"] .sv-page-btn:hover:not(.active):not(.disabled) {
+                background: rgba(99, 102, 241, 0.15) !important;
+                border-color: rgba(99, 102, 241, 0.35) !important;
+            }
         </style>
 
         <?php
@@ -771,7 +1271,7 @@
                                     $monthValue = !empty($s->service_date) ? (int) date('n', strtotime($s->service_date)) : 0;
                                     $initials = strtoupper(substr(trim($s->customer_name ?? 'CU'), 0, 2));
                                     $colorClass = $avatarColors[$index % count($avatarColors)];
-                                    ?>
+                                ?>
                                     <tr class="sv-data-row" data-status="<?= $statusClass ?>" data-month="<?= $monthValue ?>">
                                         <td><span class="sv-row-num"></span></td>
                                         <td>
@@ -851,7 +1351,7 @@
         </div>
 
         <script>
-            (function () {
+            (function() {
                 let currentPage = 1;
                 let currentFilter = 'all';
                 let searchQuery = '';
@@ -983,34 +1483,37 @@
                     btn.className = 'sv-page-btn' + (extraClass ? ' ' + extraClass : '') + (!page ? ' disabled' : '');
                     btn.innerHTML = label;
                     if (page && extraClass !== 'active') {
-                        btn.onclick = function () {
+                        btn.onclick = function() {
                             currentPage = page;
                             render();
                             // Scroll to top of table
-                            document.querySelector('.sv-card').scrollIntoView({ behavior: 'smooth', block: 'start' });
+                            document.querySelector('.sv-card').scrollIntoView({
+                                behavior: 'smooth',
+                                block: 'start'
+                            });
                         };
                     }
                     paginationDiv.appendChild(btn);
                 }
 
                 // Events
-                searchInput.addEventListener('input', function () {
+                searchInput.addEventListener('input', function() {
                     searchQuery = this.value.toLowerCase().trim();
                     currentPage = 1;
                     render();
                 });
 
-                perPageSelect.addEventListener('change', function () {
+                perPageSelect.addEventListener('change', function() {
                     currentPage = 1;
                     render();
                 });
 
-                monthFilterSelect.addEventListener('change', function () {
+                monthFilterSelect.addEventListener('change', function() {
                     currentPage = 1;
                     render();
                 });
 
-                filterTabs.addEventListener('click', function (e) {
+                filterTabs.addEventListener('click', function(e) {
                     const tab = e.target.closest('.sv-filter-tab');
                     if (!tab) return;
                     filterTabs.querySelectorAll('.sv-filter-tab').forEach(t => t.classList.remove('active'));
@@ -1021,7 +1524,7 @@
                 });
 
                 // Keyboard nav
-                document.addEventListener('keydown', function (e) {
+                document.addEventListener('keydown', function(e) {
                     if (document.activeElement === searchInput) return;
                     const filtered = getFilteredRows();
                     const perPage = getPerPage();

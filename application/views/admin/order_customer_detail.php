@@ -903,7 +903,123 @@
                     border-bottom: 1px solid #f8fafc;
                 }
             }
+
+            @media print {
+                body, .page-wrapper, .page-content, .adm-wrapper {
+                    background: #fff !important;
+                    margin: 0 !important;
+                    padding: 0 !important;
+                    box-shadow: none !important;
+                }
+                .adm-sidebar, .adm-topbar, .adm-overlay, .cv-wrap, .cv-topbar, .cv-top-btns, footer, .cv-actions {
+                    display: none !important;
+                    visibility: hidden !important;
+                }
+                .printable-invoice {
+                    display: block !important;
+                    visibility: visible !important;
+                    width: 100% !important;
+                    background: #fff !important;
+                    color: #000 !important;
+                    position: absolute !important;
+                    left: 0 !important;
+                    top: 0 !important;
+                    padding: 10px !important;
+                }
+                .invoice-header {
+                    display: flex !important;
+                    justify-content: space-between !important;
+                    align-items: center !important;
+                    margin-bottom: 20px !important;
+                }
+                .invoice-vendor-details {
+                    text-align: right !important;
+                }
+            }
         </style>
+
+        <?php
+        $CI =& get_instance();
+        $store = null;
+        $adminSession = $CI->session->userdata('admin');
+        if ($adminSession) {
+            $store = $CI->db->get_where('users', ['id' => (int) $adminSession['id']])->row();
+        }
+        ?>
+
+        <!-- Printable Invoice (Only visible when printing) -->
+        <div class="printable-invoice" style="display: none;">
+            <div class="invoice-header">
+                <div class="invoice-logo">
+                    <img src="<?= base_url('assets/images/filtter-logo.png') ?>" alt="Logo" style="height: 45px; object-fit: contain;" />
+                </div>
+                <div class="invoice-vendor-details">
+                    <h2 style="font-size: 20px; font-weight: 800; color: #1e293b; margin-bottom: 4px;"><?= htmlspecialchars($store->store_name ?? $store->name ?? 'Filter Book') ?></h2>
+                    <p style="font-size: 12px; color: #475569; margin: 2px 0;"><?= htmlspecialchars($store->address ?? '') ?></p>
+                    <p style="font-size: 12px; color: #475569; margin: 2px 0;">Phone: <?= htmlspecialchars($store->mobile ?? '') ?> &nbsp;|&nbsp; Email: <?= htmlspecialchars($store->email ?? '') ?></p>
+                </div>
+            </div>
+            
+            <div style="border-bottom: 2px solid #e2e8f0; margin: 15px 0;"></div>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 25px;">
+                <div>
+                    <h4 style="font-size: 12px; font-weight: 700; color: #94a3b8; text-transform: uppercase; margin-bottom: 8px;">Bill To:</h4>
+                    <h3 style="font-size: 16px; font-weight: 700; color: #0f172a; margin-bottom: 4px;"><?= htmlspecialchars($customer->name) ?></h3>
+                    <p style="font-size: 13px; color: #475569; margin: 2px 0;">Phone: <?= htmlspecialchars($customer->mobile) ?></p>
+                    <p style="font-size: 13px; color: #475569; margin: 2px 0;">Address: <?= htmlspecialchars($customer->address) ?></p>
+                </div>
+                <div style="text-align: right;">
+                    <h4 style="font-size: 12px; font-weight: 700; color: #94a3b8; text-transform: uppercase; margin-bottom: 8px;">Invoice Info:</h4>
+                    <p style="font-size: 13px; color: #475569; margin: 2px 0;"><strong>Invoice ID:</strong> #IN-<?= str_pad($customer->id, 5, '0', STR_PAD_LEFT) ?></p>
+                    <p style="font-size: 13px; color: #475569; margin: 2px 0;"><strong>Date:</strong> <?= date('d M Y') ?></p>
+                </div>
+            </div>
+            
+            <table style="width: 100%; border-collapse: collapse; margin-bottom: 25px;">
+                <thead>
+                    <tr style="background-color: #f8fafc; border-bottom: 1px solid #cbd5e1;">
+                        <th style="padding: 10px; text-align: left; font-size: 12px; font-weight: 700; color: #475569; text-transform: uppercase;">Product</th>
+                        <th style="padding: 10px; text-align: center; font-size: 12px; font-weight: 700; color: #475569; text-transform: uppercase;">Model</th>
+                        <th style="padding: 10px; text-align: center; font-size: 12px; font-weight: 700; color: #475569; text-transform: uppercase;">Purchase Date</th>
+                        <th style="padding: 10px; text-align: center; font-size: 12px; font-weight: 700; color: #475569; text-transform: uppercase;">Payment</th>
+                        <th style="padding: 10px; text-align: right; font-size: 12px; font-weight: 700; color: #475569; text-transform: uppercase;">Price</th>
+                        <th style="padding: 10px; text-align: center; font-size: 12px; font-weight: 700; color: #475569; text-transform: uppercase; width: 100px;">Scan QR</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($orders as $order): 
+                        $orderQrText = site_url('order/view/' . $order->id);
+                        $orderQrCodeUrl = 'https://quickchart.io/qr?size=100&text=' . rawurlencode($orderQrText);
+                    ?>
+                        <tr style="border-bottom: 1px dotted #e2e8f0;">
+                            <td style="padding: 12px 10px; font-size: 14px; font-weight: 600; color: #0f172a;"><?= htmlspecialchars($order->product_name) ?></td>
+                            <td style="padding: 12px 10px; text-align: center; font-size: 13px; color: #475569;"><?= !empty($order->product_modal) ? htmlspecialchars($order->product_modal) : '—' ?></td>
+                            <td style="padding: 12px 10px; text-align: center; font-size: 13px; color: #475569;"><?= !empty($order->date_of_purchase) ? date('d M Y', strtotime($order->date_of_purchase)) : '—' ?></td>
+                            <td style="padding: 12px 10px; text-align: center; font-size: 13px; color: #475569;"><?= (int)$order->payment_type === 1 ? 'EMI' : 'Cash' ?></td>
+                            <td style="padding: 12px 10px; text-align: right; font-size: 14px; font-weight: 700; color: #0f172a;">₹<?= number_format((float)$order->price, 2) ?></td>
+                            <td style="padding: 5px; text-align: center;">
+                                <img src="<?= $orderQrCodeUrl ?>" alt="QR" style="width: 70px; height: 70px;" />
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+            
+            <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                <div style="max-width: 350px;">
+                    <p style="font-size: 12px; color: #64748b; font-style: italic;">Scan the QR code next to your product to view full details, including Service schedule, EMI log, and raise complaints directly.</p>
+                </div>
+                <div style="width: 200px; text-align: right;">
+                    <p style="font-size: 14px; color: #475569; margin: 4px 0;"><strong>Subtotal:</strong> ₹<?= number_format((float)$total_value, 2) ?></p>
+                    <p style="font-size: 16px; color: #0f172a; margin: 4px 0; border-top: 1px solid #e2e8f0; padding-top: 6px;"><strong>Grand Total:</strong> ₹<?= number_format((float)$total_value, 2) ?></p>
+                </div>
+            </div>
+            
+            <div style="margin-top: 50px; text-align: center; border-top: 1px solid #f1f5f9; padding-top: 15px;">
+                <p style="font-size: 14px; font-weight: 600; color: #475569;">Thank you for your business!</p>
+            </div>
+        </div>
 
         <div class="cv-wrap">
 
@@ -993,6 +1109,7 @@
                                 <th>Price</th>
                                 <th>Payment</th>
                                 <th>Services</th>
+                                <th style="text-align:center">QR Code</th>
                                 <th style="text-align:center">Actions</th>
                             </tr>
                         </thead>
@@ -1029,6 +1146,15 @@
                                         <td>
                                             <span class="cv-svc"><i class="bx bx-wrench"></i>
                                                 <?= (int) $order->total_services ?></span>
+                                        </td>
+                                        <?php 
+                                            $scrQrText = site_url('order/view/' . $order->id);
+                                            $scrQrCodeUrl = 'https://quickchart.io/qr?size=100&text=' . rawurlencode($scrQrText);
+                                        ?>
+                                        <td style="text-align:center">
+                                            <a href="<?= $scrQrText ?>" target="_blank" title="Scan QR to View Details & Complain">
+                                                <img src="<?= $scrQrCodeUrl ?>" alt="Order QR" style="width: 48px; height: 48px; border: 1px solid #e2e8f0; border-radius: 6px; padding: 2px; background: #fff;" />
+                                            </a>
                                         </td>
                                         <td>
                                             <div class="cv-actions">

@@ -1224,6 +1224,290 @@
             font-size: 0.7rem;
         }
     }
+
+    /* ── Page background ── */
+    .page-content {
+        background: linear-gradient(135deg, #f0f4ff 0%, #f9fafb 60%, #f5f3ff 100%);
+        min-height: 100vh;
+        border-radius: 16px;
+    }
+
+    /* ── Page header title ── */
+    .page-header-left h1 {
+        background: linear-gradient(135deg, #4F46E5, #7C3AED);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        font-size: 1.75rem !important;
+    }
+
+    /* ── QR section card ── */
+    .page-content>div[style*="margin-bottom: 1.5rem"][style*="display:flex"] {
+        background: #fff !important;
+        border: 1px solid #e0e7ff !important;
+        border-radius: 14px !important;
+        padding: 16px 20px !important;
+        box-shadow: 0 2px 12px rgba(99, 102, 241, 0.07) !important;
+    }
+
+    /* ── QR label ── */
+    .page-content>div[style*="margin-bottom: 1.5rem"] div[style*="font-weight:600"] {
+        font-size: 15px;
+        color: #1e293b;
+        letter-spacing: -0.01em;
+    }
+
+    /* ── Search input ── */
+    #searchInput {
+        background: #fff !important;
+        border: 1px solid #c7d2fe !important;
+        border-radius: 10px !important;
+        font-size: 14px !important;
+        transition: all 0.2s ease;
+        box-shadow: 0 1px 4px rgba(99, 102, 241, 0.07);
+        color: #1e293b !important;
+    }
+
+    #searchInput:focus {
+        outline: none;
+        border-color: #818cf8 !important;
+        box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.12) !important;
+    }
+
+    #searchInput::placeholder {
+        color: #9ca3af !important;
+    }
+
+    /* ── Table card ── */
+    .table-card {
+        border-color: #e0e7ff !important;
+        box-shadow: 0 4px 24px rgba(99, 102, 241, 0.08), 0 1px 4px rgba(0, 0, 0, 0.04) !important;
+        border-radius: 16px !important;
+    }
+
+    /* ── Table header ── */
+    thead {
+        background: linear-gradient(90deg, #eef2ff, #f5f3ff) !important;
+        border-bottom: 2px solid #e0e7ff !important;
+    }
+
+    thead th {
+        color: #6366f1 !important;
+        font-size: 0.7rem !important;
+        letter-spacing: 0.08em !important;
+    }
+
+    /* ── Row hover ── */
+    tbody tr:hover {
+        background: linear-gradient(90deg, #eef2ff 0%, #faf5ff 100%) !important;
+    }
+
+    tbody tr {
+        border-bottom-color: #f0f0ff !important;
+    }
+
+    /* ── Product image ── */
+    .product-image {
+        border-radius: 10px !important;
+        border-color: #e0e7ff !important;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .product-placeholder {
+        background: linear-gradient(135deg, #ede9fe, #eef2ff) !important;
+        border-color: #c7d2fe !important;
+        color: #6366f1 !important;
+        border-radius: 10px !important;
+    }
+
+    /* ── Product name & SKU ── */
+    .product-name {
+        font-size: 0.9375rem !important;
+        color: #1e293b !important;
+    }
+
+    .product-sku {
+        color: #a5b4fc !important;
+        font-size: 0.7rem !important;
+        letter-spacing: 0.03em;
+    }
+
+    /* ── Price ── */
+    .price {
+        color: #4f46e5 !important;
+        font-size: 0.9375rem !important;
+        font-weight: 700 !important;
+    }
+
+    /* ── Description ── */
+    .description-text {
+        color: #6b7280 !important;
+    }
+
+    /* ── Active badge ── */
+    .badge-success {
+        background: linear-gradient(135deg, #d1fae5, #ecfdf5) !important;
+        color: #065f46 !important;
+        border: 1px solid #a7f3d0 !important;
+        border-radius: 8px !important;
+        font-weight: 600 !important;
+        padding: 0.3rem 0.75rem !important;
+        box-shadow: 0 1px 4px rgba(5, 150, 105, 0.1);
+    }
+
+    /* ── Action buttons ── */
+    .action-btn {
+        border-radius: 8px !important;
+        border: 1px solid transparent !important;
+        transition: all 0.18s ease !important;
+    }
+
+    .action-btn.edit:hover {
+        background: linear-gradient(135deg, #ede9fe, #eef2ff) !important;
+        border-color: #c7d2fe !important;
+        color: #6366f1 !important;
+        transform: translateY(-1px);
+        box-shadow: 0 2px 8px rgba(99, 102, 241, 0.15) !important;
+    }
+
+    .action-btn.delete:hover {
+        background: #fef2f2 !important;
+        border-color: #fecaca !important;
+        color: #dc2626 !important;
+        transform: translateY(-1px);
+        box-shadow: 0 2px 8px rgba(220, 38, 38, 0.1) !important;
+    }
+
+    /* ── Table footer ── */
+    .table-footer {
+        background: linear-gradient(90deg, #f5f3ff, #eef2ff) !important;
+        border-top-color: #e0e7ff !important;
+    }
+
+    .table-info strong {
+        color: #6366f1 !important;
+    }
+
+    .page-btn {
+        border-color: #e0e7ff !important;
+        border-radius: 8px !important;
+    }
+
+    .page-btn.active {
+        background: linear-gradient(135deg, #6366f1, #7c3aed) !important;
+        border-color: transparent !important;
+        box-shadow: 0 2px 8px rgba(99, 102, 241, 0.3) !important;
+    }
+
+    .page-btn:hover:not(.active):not(:disabled) {
+        background: #ede9fe !important;
+        border-color: #c7d2fe !important;
+        color: #6366f1 !important;
+    }
+
+    /* ── Buttons ── */
+    .btn-primary {
+        background: linear-gradient(135deg, #6366f1, #7c3aed) !important;
+        border-radius: 10px !important;
+        box-shadow: 0 2px 10px rgba(99, 102, 241, 0.35) !important;
+        font-weight: 600 !important;
+    }
+
+    .btn-primary:hover {
+        background: linear-gradient(135deg, #4f46e5, #6d28d9) !important;
+        box-shadow: 0 4px 16px rgba(99, 102, 241, 0.4) !important;
+        color: #fff !important;
+        text-decoration: none;
+    }
+
+    .btn-secondary {
+        border-color: #c7d2fe !important;
+        color: #6366f1 !important;
+        border-radius: 10px !important;
+    }
+
+    .btn-secondary:hover {
+        background: #ede9fe !important;
+        border-color: #a5b4fc !important;
+        color: #4f46e5 !important;
+        text-decoration: none;
+    }
+
+    /* ══ DARK THEME ══ */
+    [data-theme="dark"] .page-content {
+        background: transparent !important;
+    }
+
+    [data-theme="dark"] .page-header-left h1 {
+        background: linear-gradient(135deg, #818cf8, #a78bfa) !important;
+        -webkit-background-clip: text !important;
+        -webkit-text-fill-color: transparent !important;
+        background-clip: text !important;
+    }
+
+    [data-theme="dark"] #searchInput {
+        border-color: rgba(99, 102, 241, 0.3) !important;
+        box-shadow: none !important;
+    }
+
+    [data-theme="dark"] .table-card {
+        border-color: rgba(99, 102, 241, 0.2) !important;
+        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3) !important;
+    }
+
+    [data-theme="dark"] thead {
+        background: linear-gradient(90deg, rgba(99, 102, 241, 0.12), rgba(124, 58, 237, 0.08)) !important;
+        border-bottom-color: rgba(99, 102, 241, 0.2) !important;
+    }
+
+    [data-theme="dark"] thead th {
+        color: #818cf8 !important;
+    }
+
+    [data-theme="dark"] tbody tr:hover {
+        background: rgba(99, 102, 241, 0.08) !important;
+    }
+
+    [data-theme="dark"] .price {
+        color: #a5b4fc !important;
+    }
+
+    [data-theme="dark"] .product-sku {
+        color: #6366f1 !important;
+    }
+
+    [data-theme="dark"] .badge-success {
+        background: rgba(16, 185, 129, 0.15) !important;
+        border-color: rgba(16, 185, 129, 0.3) !important;
+        color: #6ee7b7 !important;
+    }
+
+    [data-theme="dark"] .table-footer {
+        background: linear-gradient(90deg, rgba(99, 102, 241, 0.08), rgba(124, 58, 237, 0.05)) !important;
+        border-top-color: rgba(99, 102, 241, 0.2) !important;
+    }
+
+    [data-theme="dark"] .table-info strong {
+        color: #818cf8 !important;
+    }
+
+    [data-theme="dark"] .page-btn {
+        border-color: rgba(99, 102, 241, 0.2) !important;
+    }
+
+    [data-theme="dark"] .page-btn:hover:not(.active):not(:disabled) {
+        background: rgba(99, 102, 241, 0.15) !important;
+        border-color: rgba(99, 102, 241, 0.35) !important;
+    }
+
+    [data-theme="dark"] .btn-secondary {
+        border-color: rgba(99, 102, 241, 0.3) !important;
+        color: #a5b4fc !important;
+    }
+
+    [data-theme="dark"] .btn-secondary:hover {
+        background: rgba(99, 102, 241, 0.15) !important;
+    }
 </style>
 <div class="page-wrapper">
     <div class="page-content">
@@ -1290,11 +1574,6 @@
                 <table>
                     <thead>
                         <tr>
-                            <th style="width: 40px;">
-                                <div class="checkbox-wrapper">
-                                    <input type="checkbox" id="selectAll" onchange="toggleSelectAll(this)">
-                                </div>
-                            </th>
                             <th class="sorted">
                                 Product <i class="fas fa-arrow-up sort-icon"></i>
                             </th>
@@ -1312,7 +1591,7 @@
                     </thead>
                     <tbody id="productTableBody">
                         <tr>
-                            <td colspan="6" style="text-align: center; padding: 40px;">
+                            <td colspan="5" style="text-align: center; padding: 40px;">
                                 <i class="fas fa-spinner fa-spin" style="font-size: 24px; color: #6B7280;"></i>
                                 <div style="margin-top: 10px; color: #6B7280;">Loading...</div>
                             </td>
@@ -1366,7 +1645,7 @@
         // Show loading state
         document.getElementById('productTableBody').innerHTML = `
         <tr>
-            <td colspan="6" style="text-align: center; padding: 40px;">
+            <td colspan="5" style="text-align: center; padding: 40px;">
                 <i class="fas fa-spinner fa-spin" style="font-size: 24px; color: #6B7280;"></i>
                 <div style="margin-top: 10px; color: #6B7280;">Loading...</div>
             </td>
@@ -1390,7 +1669,7 @@
                 console.error('Error:', error);
                 document.getElementById('productTableBody').innerHTML = `
             <tr>
-                <td colspan="6" style="text-align: center; padding: 40px; color: #EF4444;">
+                <td colspan="5" style="text-align: center; padding: 40px; color: #EF4444;">
                     <i class="fas fa-exclamation-triangle" style="font-size: 24px;"></i>
                     <div style="margin-top: 10px;">Error loading products</div>
                 </td>
@@ -1406,7 +1685,7 @@
         if (products.length === 0) {
             tbody.innerHTML = `
             <tr>
-                <td colspan="6">
+                <td colspan="5">
                     <div class="empty-state">
                         <div class="empty-icon">
                             <i class="fas fa-box-open"></i>
@@ -1427,11 +1706,6 @@
         products.forEach(function(p) {
             html += `
             <tr>
-                <td>
-                    <div class="checkbox-wrapper">
-                        <input type="checkbox" class="row-checkbox" onchange="updateBulkBar()">
-                    </div>
-                </td>
                 <td>
                     <div class="product-cell">
                         ${p.image ? 

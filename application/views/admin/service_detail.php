@@ -1,6 +1,53 @@
 <div class="page-wrapper">
     <div class="page-content">
         <style>
+            /* ══════════════════════════════════════
+   Full Width Fix
+══════════════════════════════════════ */
+            .detail-page {
+                max-width: 100% !important;
+            }
+
+            .detail-grid {
+                max-width: 100%;
+            }
+
+            /* ══════════════════════════════════════
+   DARK THEME — Service Detail Page
+══════════════════════════════════════ */
+            [data-theme="dark"] .detail-card {
+                background: var(--bg-secondary) !important;
+                border-color: var(--border-color) !important;
+                box-shadow: none !important;
+            }
+
+            [data-theme="dark"] .detail-card h3 {
+                color: var(--text-primary) !important;
+                border-color: var(--border-color) !important;
+            }
+
+            [data-theme="dark"] .detail-row {
+                border-color: var(--border-color) !important;
+            }
+
+            [data-theme="dark"] .detail-label {
+                color: var(--text-secondary) !important;
+            }
+
+            [data-theme="dark"] .detail-value {
+                color: var(--text-primary) !important;
+            }
+
+            [data-theme="dark"] .detail-status.pending {
+                background: rgba(194, 65, 12, 0.12) !important;
+                color: #fb923c !important;
+            }
+
+            [data-theme="dark"] .detail-status.paid {
+                background: rgba(4, 120, 87, 0.12) !important;
+                color: #34d399 !important;
+            }
+
             .detail-page {
                 max-width: 1080px;
                 margin: 0 auto;
@@ -28,7 +75,7 @@
             .detail-hero a {
                 color: #fff;
                 text-decoration: none;
-                border: 1px solid rgba(255,255,255,0.25);
+                border: 1px solid rgba(255, 255, 255, 0.25);
                 padding: 10px 16px;
                 border-radius: 10px;
                 font-weight: 700;

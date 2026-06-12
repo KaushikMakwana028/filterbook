@@ -1,5 +1,5 @@
 <?php
-$selectedOrderId = (int) $this->input->post('order_id');
+$selectedOrderId = (int) ($this->input->post('order_id') ?: $this->input->get('order_id'));
 $selectedModel = '';
 foreach ($orders as $order) {
     if ((int) $order->id === $selectedOrderId) {

@@ -191,4 +191,42 @@ $this->send_expo_push(
 
     return $result;
 }
+
+    public function order($order_id = 0)
+    {
+        $order_id = (int) $order_id;
+        $order = $this->db
+            ->select('orders.*, customers.name AS customer_name, customers.mobile AS customer_mobile, customers.address AS customer_address, users.store_name AS vendor_name, users.mobile AS vendor_mobile, users.email AS vendor_email')
+            ->from('orders')
+            ->join('customers', 'customers.id = orders.customer_id', 'inner')
+            ->join('users', 'users.id = orders.store_id', 'inner')
+            ->where('orders.id', $order_id)
+            ->get()
+            ->row();
+
+        if (!$order) {
+            show_404();
+        }
+
+        $services = $this->db
+            ->where('order_id', $order_id)
+            ->order_by('service_number', 'ASC')
+            ->get('service_log')
+            ->result();
+
+        $emis = [];
+        if ((int) $order->payment_type === 1) {
+            $emis = $this->db
+                ->where('order_id', $order_id)
+                ->order_by('emi_number', 'ASC')
+                ->get('emi_logs')
+                ->result();
+        }
+
+        $data['order'] = $order;
+        $data['services'] = $services;
+        $data['emis'] = $emis;
+
+        $this->load->view('order_public_view', $data);
+    }
 }

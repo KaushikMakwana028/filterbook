@@ -1,6 +1,83 @@
 <div class="page-wrapper">
     <div class="page-content">
         <style>
+            /* ══════════════════════════════════════
+   Color Fix — Match site primary + full width
+══════════════════════════════════════ */
+            .acs-wrap {
+                max-width: 100% !important;
+            }
+
+            .acs-card {
+                max-width: 860px;
+                margin: 0 auto;
+            }
+
+            .acs-field select:focus,
+            .acs-field input:focus {
+                border-color: var(--primary, #6366f1) !important;
+                box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.08) !important;
+            }
+
+            .acs-btn.primary {
+                background: linear-gradient(135deg, var(--primary, #6366f1), var(--primary-dark, #4f46e5)) !important;
+            }
+
+            /* Back button */
+            .acs-hero a:hover {
+                background: rgba(255, 255, 255, 0.2) !important;
+                color: #fff !important;
+                text-decoration: none !important;
+            }
+
+            /* ══════════════════════════════════════
+   DARK THEME — Service Add Page
+══════════════════════════════════════ */
+            [data-theme="dark"] .acs-card {
+                background: var(--bg-secondary) !important;
+                border-color: var(--border-color) !important;
+                box-shadow: none !important;
+            }
+
+            [data-theme="dark"] .acs-card h3 {
+                color: var(--text-primary) !important;
+                border-color: var(--border-color) !important;
+            }
+
+            [data-theme="dark"] .acs-field label {
+                color: var(--text-secondary) !important;
+            }
+
+            [data-theme="dark"] .acs-field input,
+            [data-theme="dark"] .acs-field select {
+                background: var(--bg-tertiary) !important;
+                border-color: var(--border-color) !important;
+                color: var(--text-primary) !important;
+            }
+
+            [data-theme="dark"] .acs-field input:focus,
+            [data-theme="dark"] .acs-field select:focus {
+                background: var(--bg-secondary) !important;
+                border-color: var(--primary) !important;
+            }
+
+            [data-theme="dark"] .acs-field input::placeholder {
+                color: var(--text-tertiary) !important;
+            }
+
+            [data-theme="dark"] .acs-help {
+                color: var(--text-tertiary) !important;
+            }
+
+            [data-theme="dark"] .acs-btn.secondary {
+                background: var(--bg-tertiary) !important;
+                color: var(--text-secondary) !important;
+            }
+
+            [data-theme="dark"] .acs-btn.secondary:hover {
+                background: var(--bg-primary) !important;
+                color: var(--text-primary) !important;
+            }
             .acs-wrap {
                 max-width: 960px;
                 margin: 0 auto;
@@ -131,6 +208,71 @@
                     grid-template-columns: 1fr;
                 }
             }
+
+            /* Suggestion Dropdown CSS */
+            .acs-field {
+                position: relative;
+            }
+            .customer-suggestions-list {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                max-height: 250px;
+                overflow-y: auto;
+                background: #ffffff;
+                border: 1.5px solid #dbe2ea;
+                border-radius: 12px;
+                box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+                z-index: 1000;
+                margin-top: 4px;
+                padding: 6px 0;
+                display: none;
+            }
+
+            [data-theme="dark"] .customer-suggestions-list {
+                background: var(--bg-secondary, #1e293b);
+                border-color: var(--border-color, #334155);
+                box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            }
+
+            .customer-suggestion-item {
+                padding: 10px 16px;
+                cursor: pointer;
+                display: flex;
+                flex-direction: column;
+                gap: 2px;
+                transition: background-color 0.2s ease;
+            }
+
+            .customer-suggestion-item:hover {
+                background-color: #f1f5f9;
+            }
+
+            [data-theme="dark"] .customer-suggestion-item:hover {
+                background-color: var(--bg-tertiary, #334155);
+            }
+
+            .customer-suggestion-name {
+                font-size: 14px;
+                font-weight: 600;
+                color: #0f172a;
+            }
+
+            [data-theme="dark"] .customer-suggestion-name {
+                color: var(--text-primary, #f8fafc);
+            }
+
+            .customer-suggestion-details {
+                font-size: 12px;
+                color: #64748b;
+                display: flex;
+                gap: 12px;
+            }
+
+            [data-theme="dark"] .customer-suggestion-details {
+                color: var(--text-secondary, #94a3b8);
+            }
         </style>
 
         <div class="acs-wrap">
@@ -138,6 +280,7 @@
             <div class="acs-card">
                 <h3>Custom Service Form</h3>
                 <form action="<?= site_url('admin/service/save') ?>" method="post">
+                    <input type="hidden" name="customer_id" id="customer_id" value="">
                     <div class="acs-form">
                         <div class="acs-field">
                             <label for="customer_name">Customer Name</label>
@@ -195,3 +338,80 @@
         </div>
     </div>
 </div>
+
+<script>
+$(document).ready(function() {
+    var nameInput = $('#customer_name');
+    var mobileInput = $('#mobile');
+    var addressInput = $('#address');
+    
+    var nameSuggestions = $('<div class="customer-suggestions-list"></div>');
+    var mobileSuggestions = $('<div class="customer-suggestions-list"></div>');
+    
+    nameInput.after(nameSuggestions);
+    mobileInput.after(mobileSuggestions);
+    
+    var searchUrl = "<?= site_url('admin/service/search_customers') ?>";
+    var timer = null;
+
+    function handleSearch(input, dropdown) {
+        var query = input.val().trim();
+        if (query.length < 2) {
+            dropdown.hide().empty();
+            return;
+        }
+
+        clearTimeout(timer);
+        timer = setTimeout(function() {
+            $.ajax({
+                url: searchUrl,
+                type: 'GET',
+                data: { q: query },
+                dataType: 'json',
+                success: function(data) {
+                    dropdown.empty();
+                    if (data.length > 0) {
+                        data.forEach(function(cust) {
+                            var item = $('<div class="customer-suggestion-item"></div>');
+                            item.append('<div class="customer-suggestion-name">' + cust.name + '</div>');
+                            item.append('<div class="customer-suggestion-details"><span><i class="bx bx-phone"></i> ' + cust.mobile + '</span><span><i class="bx bx-map"></i> ' + (cust.address || 'N/A') + '</span></div>');
+                            
+                            item.on('click', function(e) {
+                                e.preventDefault();
+                                e.stopPropagation();
+                                
+                                $('#customer_id').val(cust.id);
+                                nameInput.val(cust.name);
+                                mobileInput.val(cust.mobile);
+                                addressInput.val(cust.address || '');
+                                
+                                $('.customer-suggestions-list').hide().empty();
+                            });
+                            dropdown.append(item);
+                        });
+                        dropdown.show();
+                    } else {
+                        dropdown.hide();
+                    }
+                }
+            });
+        }, 250);
+    }
+
+    nameInput.on('input', function() {
+        $('#customer_id').val('');
+        handleSearch(nameInput, nameSuggestions);
+    });
+
+    mobileInput.on('input', function() {
+        $('#customer_id').val('');
+        handleSearch(mobileInput, mobileSuggestions);
+    });
+
+    $(document).on('click', function(e) {
+        if (!$(e.target).closest('.acs-field').length) {
+            $('.customer-suggestions-list').hide();
+        }
+    });
+});
+</script>

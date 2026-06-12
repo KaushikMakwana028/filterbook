@@ -805,6 +805,20 @@ private function sendWhatsAppBill($customerMobile, $mediaId, $order, $customer, 
         }
     }
 
+    public function search_customers()
+    {
+        $query = trim((string) $this->input->get('q', true));
+        header('Content-Type: application/json');
+
+        if ($query === '') {
+            echo json_encode([]);
+            return;
+        }
+
+        $customers = $this->Customer_model->search_customers($query, $this->store_id);
+        echo json_encode($customers);
+    }
+
     public function lookup_existing_order()
     {
         $mobile = preg_replace('/\D+/', '', (string) $this->input->post('mobile', true));

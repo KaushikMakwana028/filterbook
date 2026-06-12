@@ -117,6 +117,7 @@ $route['publiccomplaint/form/(:num)'] = 'publiccomplaint/form/$1';
 $route['publiccomplaint/save/(:num)'] = 'publiccomplaint/save/$1';
 $route['complaint/(:num)'] = 'publiccomplaint/form/$1';
 $route['complaint/save/(:num)'] = 'publiccomplaint/save/$1';
+$route['order/view/(:num)'] = 'publiccomplaint/order/$1';
 
 
 $route['admin/emi'] = 'admin/emi/index';

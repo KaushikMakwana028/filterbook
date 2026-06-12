@@ -29,11 +29,12 @@ $currentController = strtolower((string) $CI->router->fetch_class());
 $currentMethod     = strtolower((string) $CI->router->fetch_method());
 
 $isDashboardMenu = $currentController === 'dashboard';
-$isSalesMenu     = $currentController === 'orders';
-$isComplaintMenu = $currentController === 'complaint';
+$isCustomerMenu  = $currentController === 'orders' && in_array($currentMethod, ['index', 'customer', 'edit_customer'], true);
+$isOrderMenu     = $currentController === 'orders' && in_array($currentMethod, ['new_order', 'add_order', 'save_order', 'edit', 'view', 'update_order', 'update_order_emi'], true);
+$isServiceMenu   = $currentController === 'service';
+$isEmiMenu       = $currentController === 'emi';
 $isAmcMenu       = $currentController === 'amc';
-$isCatalogMenu   = $currentController === 'catalog';
-$isHrMenu        = in_array($currentController, ['employee', 'attendance', 'payroll', 'salary'], true);
+$isComplaintMenu = $currentController === 'complaint';
 ?>
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
@@ -944,47 +945,51 @@ $isHrMenu        = in_array($currentController, ['employee', 'attendance', 'payr
 				</a>
 			</div>
 
-			<!-- Sales -->
-			<div class="adm-nav-item has-submenu <?= $isSalesMenu ? 'open active' : '' ?>">
-				<div class="adm-nav-link" data-tip="Sales">
-					<i class="fa-solid fa-cart-shopping nav-icon"></i>
-					<span class="adm-nav-label">Sales</span>
-					<i class="fa-solid fa-chevron-down adm-chevron"></i>
-				</div>
-				<div class="adm-submenu">
-					<a href="<?= site_url('admin/orders') ?>" class="adm-submenu-item <?= $isSalesMenu ? 'active' : '' ?>">
-						<i class="fa-solid fa-circle-dot"></i> Parties
-					</a>
-				</div>
+			<!-- Customer -->
+			<div class="adm-nav-item <?= $isCustomerMenu ? 'active' : '' ?>">
+				<a href="<?= site_url('admin/orders') ?>" class="adm-nav-link" data-tip="Customer">
+					<i class="fa-solid fa-users nav-icon"></i>
+					<span class="adm-nav-label">Customer</span>
+				</a>
 			</div>
 
-			<!-- Complaints -->
-			<div class="adm-nav-item <?= $isComplaintMenu ? 'active' : '' ?>">
-				<a href="<?= site_url('admin/complaint') ?>" class="adm-nav-link" data-tip="Complaints">
-					<i class="fa-solid fa-comments nav-icon"></i>
-					<span class="adm-nav-label">Complaints</span>
+			<!-- Order -->
+			<div class="adm-nav-item <?= $isOrderMenu ? 'active' : '' ?>">
+				<a href="<?= site_url('admin/orders/new_order') ?>" class="adm-nav-link" data-tip="Order">
+					<i class="fa-solid fa-cart-plus nav-icon"></i>
+					<span class="adm-nav-label">Order</span>
+				</a>
+			</div>
+
+			<!-- Services -->
+			<div class="adm-nav-item <?= $isServiceMenu ? 'active' : '' ?>">
+				<a href="<?= site_url('admin/service') ?>" class="adm-nav-link" data-tip="Services">
+					<i class="fa-solid fa-screwdriver-wrench nav-icon"></i>
+					<span class="adm-nav-label">Services</span>
+				</a>
+			</div>
+
+			<!-- EMI -->
+			<div class="adm-nav-item <?= $isEmiMenu ? 'active' : '' ?>">
+				<a href="<?= site_url('admin/emi') ?>" class="adm-nav-link" data-tip="EMI">
+					<i class="fa-solid fa-credit-card nav-icon"></i>
+					<span class="adm-nav-label">EMI</span>
 				</a>
 			</div>
 
 			<!-- AMC Customer -->
-			<div class="adm-nav-item has-submenu <?= $isAmcMenu ? 'open active' : '' ?>">
-				<div class="adm-nav-link" data-tip="AMC Customer">
+			<div class="adm-nav-item <?= $isAmcMenu ? 'active' : '' ?>">
+				<a href="<?= site_url('admin/amc') ?>" class="adm-nav-link" data-tip="AMC Customer">
 					<i class="fa-solid fa-file-signature nav-icon"></i>
 					<span class="adm-nav-label">AMC Customer</span>
-					<i class="fa-solid fa-chevron-down adm-chevron"></i>
-				</div>
-				<div class="adm-submenu">
-					<a href="<?= site_url('admin/amc') ?>" class="adm-submenu-item <?= ($isAmcMenu && $currentMethod === 'index') ? 'active' : '' ?>">
-						<i class="fa-solid fa-circle-dot"></i> All AMC
-					</a>
-				</div>
+				</a>
 			</div>
 
-			<!-- Catalog -->
-			<div class="adm-nav-item <?= $isCatalogMenu ? 'active' : '' ?>">
-				<a href="<?= site_url('admin/catalog') ?>" class="adm-nav-link" data-tip="Catalog">
-					<i class="fa-solid fa-receipt nav-icon"></i>
-					<span class="adm-nav-label">Catalog</span>
+			<!-- Complain -->
+			<div class="adm-nav-item <?= $isComplaintMenu ? 'active' : '' ?>">
+				<a href="<?= site_url('admin/complaint') ?>" class="adm-nav-link" data-tip="Complain">
+					<i class="fa-solid fa-comments nav-icon"></i>
+					<span class="adm-nav-label">Complain</span>
 				</a>
 			</div>
 
